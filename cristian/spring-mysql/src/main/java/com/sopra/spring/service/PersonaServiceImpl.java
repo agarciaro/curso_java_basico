@@ -47,8 +47,8 @@ public class PersonaServiceImpl implements PersonaService {
 	public boolean delete(Long personaId) {
 		
 		personaRepository.deleteById(personaId);
-		
-		return personaRepository.findById(personaId) != null ? true : false;
+				
+		return personaRepository.findById(personaId).isEmpty() ? true : false;
 	}
 
 }
