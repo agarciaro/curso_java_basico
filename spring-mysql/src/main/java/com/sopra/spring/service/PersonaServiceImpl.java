@@ -18,4 +18,9 @@ public class PersonaServiceImpl implements PersonaService {
 		return personaRepository.save(p);
 	}
 
+	@Override
+	public Persona getById(Long personaId) {
+		return personaRepository.findById(personaId).get();
+	}
+
 }

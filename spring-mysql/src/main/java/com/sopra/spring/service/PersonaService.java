@@ -5,5 +5,7 @@ import com.sopra.spring.model.Persona;
 public interface PersonaService {
 	
 	Persona insert(Persona p);
+
+	Persona getById(Long personaId);
 	
 }
