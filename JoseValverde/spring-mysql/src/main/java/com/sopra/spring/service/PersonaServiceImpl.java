@@ -18,4 +18,10 @@ public class PersonaServiceImpl implements PersonaSevice {
 		return personaRepository.save(p);
 	}
 
+	@Override
+	public Persona getById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

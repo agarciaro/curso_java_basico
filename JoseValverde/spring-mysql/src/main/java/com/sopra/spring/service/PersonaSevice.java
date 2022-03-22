@@ -5,5 +5,7 @@ import com.sopra.spring.model.Persona;
 public interface PersonaSevice {
 
 	Persona insert(Persona p);
+
+	Persona getById();
 	
 }

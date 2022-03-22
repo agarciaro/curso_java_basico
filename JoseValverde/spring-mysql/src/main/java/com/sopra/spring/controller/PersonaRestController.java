@@ -29,6 +29,6 @@ public class PersonaRestController {
 	
 	@GetMapping(path = "/personas/{id}")
 	public Persona getPersonaById(@PathVariable("id") Long isPersona) {
-		return personaService.getById()
+		return personaService.getById();
 	}
 }
