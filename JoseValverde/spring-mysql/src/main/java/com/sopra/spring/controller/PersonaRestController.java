@@ -1,6 +1,8 @@
 package com.sopra.spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,4 +27,8 @@ public class PersonaRestController {
 		return personaService.insert(p);
 	}
 	
+	@GetMapping(path = "/personas/{id}")
+	public Persona getPersonaById(@PathVariable("id") Long isPersona) {
+		return personaService.getById()
+	}
 }
