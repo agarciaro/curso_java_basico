@@ -28,7 +28,7 @@ public class SpringAopApplication {
 		SpringApplication.run(SpringAopApplication.class, args);
 	}
 	
-	@PostConstruct
+//	@PostConstruct
 	public void init() {
 		
 		log.info("VALOR:{}", valor);
