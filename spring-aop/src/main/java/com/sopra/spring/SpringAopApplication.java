@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.sopra.spring.annotation.PruebasService;
+import com.sopra.spring.service.PruebasService;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,14 +37,14 @@ public class SpringAopApplication {
 		pruebasService.funcion2();
 		pruebasService.funcion3();
 		
-		Method[] metodos = PruebasService.class.getDeclaredMethods();
-		for (Method method : metodos) {
-			log.info("Metodo:{}", method);
-			Annotation[] annotations = method.getAnnotations();
-			for (Annotation annotation : annotations) {
-				log.info(" Annotation:{}", annotation);
-			}
-		}
+//		Method[] metodos = PruebasService.class.getDeclaredMethods();
+//		for (Method method : metodos) {
+//			log.info("Metodo:{}", method);
+//			Annotation[] annotations = method.getAnnotations();
+//			for (Annotation annotation : annotations) {
+//				log.info(" Annotation:{}", annotation);
+//			}
+//		}
 		
 	}
 
