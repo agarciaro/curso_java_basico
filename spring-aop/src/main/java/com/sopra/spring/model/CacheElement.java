@@ -1,13 +1,24 @@
 package com.sopra.spring.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.time.LocalDateTime;
 
-@Data
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@ToString
+@Getter
 @NoArgsConstructor
-@AllArgsConstructor
+//@AllArgsConstructor
 public class CacheElement {
+	@Setter
 	private Object element;
-	private boolean valid = false;
+	@Setter
+	private boolean valid = true;
+	private Long creationTime = System.currentTimeMillis();
+	
+	public CacheElement(Object e) {
+		this.element = e;
+	}
 }

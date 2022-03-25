@@ -1,5 +1,12 @@
 package com.sopra.spring.exception;
 
-public class CacheNotFoundException extends RuntimeException {
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+public class CacheNotFoundException extends CacheException {
+	
+	public CacheNotFoundException(String message) {
+		super(message);
+	}
+	
 }

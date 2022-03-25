@@ -3,9 +3,9 @@ package com.sopra.spring.exception;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public class CacheEvictedException extends CacheException {
-
-	public CacheEvictedException(String message) {
+public class CacheExpiredException extends CacheException {
+	
+	public CacheExpiredException(String message) {
 		super(message);
 	}
 	

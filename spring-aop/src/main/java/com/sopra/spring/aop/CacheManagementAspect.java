@@ -7,23 +7,25 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import com.sopra.spring.annotation.Cacheame;
-import com.sopra.spring.annotation.LogueaTiempo;
-import com.sopra.spring.exception.CacheEvictedException;
-import com.sopra.spring.exception.CacheNotFoundException;
-import com.sopra.spring.service.CacheManagementService;
+import com.sopra.spring.exception.CacheException;
+import com.sopra.spring.service.CacheManager;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Aspect
+@ConditionalOnProperty(name = "sopra.cache.enabled", havingValue = "true")
 @Slf4j
 public class CacheManagementAspect {
 	
 	@Autowired
-	CacheManagementService cache;
+	@Qualifier("cacheManager")
+	CacheManager cache;
 	
 	@Around("@annotation(com.sopra.spring.annotation.Cacheame)")
 	public Object cacheaDatos(ProceedingJoinPoint joinPoint) throws Throwable {
@@ -33,8 +35,10 @@ public class CacheManagementAspect {
 		String cacheName = annotation.nombre();
 		
 		try {
-			return cache.getCacheValue(cacheName);
-		} catch (CacheNotFoundException | CacheEvictedException e) {
+			Object e = cache.getCacheValue(cacheName);
+			log.debug("Cache found! Getting result from cache");
+			return e;
+		} catch (CacheException e) {
 			log.warn("Cache miss:{}", e.getMessage());
 		} 
 		

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.sopra.spring.annotation.Cacheame;
 import com.sopra.spring.annotation.CacheameEvict;
@@ -28,8 +29,9 @@ public class SocisServiceImpl implements SocisService {
 	
 	@CacheameEvict(nombre = "socis")
 	@Override
+	@Transactional
 	public Socis insert(Socis soci) {
-		return socisRepository.save(soci);
+		return socisRepository.insert(soci);
 	}
 
 }
