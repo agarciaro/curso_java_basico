@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `exemplars`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `exemplars` (
-  `num_exemplar` int NOT NULL,
+  `num_exemplar` int AUTO_INCREMENT NOT NULL,
   `codi_llibre` int DEFAULT NULL,
   `any_edicio` int DEFAULT NULL,
   `num_edicio` int DEFAULT NULL,
@@ -51,7 +51,7 @@ DROP TABLE IF EXISTS `llibres`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `llibres` (
-  `codi` int NOT NULL,
+  `codi` int AUTO_INCREMENT NOT NULL,
   `titol` varchar(50) DEFAULT NULL,
   `editorial` varchar(50) DEFAULT NULL,
   `idioma` varchar(50) DEFAULT NULL,
@@ -110,7 +110,7 @@ DROP TABLE IF EXISTS `socis`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `socis` (
-  `codi` int NOT NULL,
+  `codi` int AUTO_INCREMENT NOT NULL,
   `nom` varchar(50) DEFAULT NULL,
   `cognom` varchar(50) DEFAULT NULL,
   `dni` varchar(20) DEFAULT NULL,
