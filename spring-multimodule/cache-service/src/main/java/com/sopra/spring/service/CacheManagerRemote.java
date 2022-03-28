@@ -53,7 +53,7 @@ public class CacheManagerRemote implements CacheManager{
 	@Override
 	public Object getCacheValue(String cacheName) throws CacheNotFoundException, CacheEvictedException, CacheExpiredException{
 		log.info("URL:{}", baseUrl + "/" + cacheName);
-//		return getCache(cacheName).getElement();
+
 		try {
 			return restTemplate.getForObject(baseUrl + "/" + cacheName, Object.class);
 		} catch (RestClientException e) {
@@ -63,10 +63,7 @@ public class CacheManagerRemote implements CacheManager{
 	
 	@Override
 	public void insertValue(String cacheName, Object value) {
-//		CacheElement cacheElement = new CacheElement(value);
 		restTemplate.postForEntity(baseUrl + "/" + cacheName, value, String.class);
-//		restTemplate.ex
-//		container.put(cacheName, cacheElement);
 	}
 	
 	@Override

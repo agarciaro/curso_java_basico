@@ -54,13 +54,13 @@ public class CacheManagerLocal implements CacheManager{
 	private CacheElement getCache(String cacheName) throws CacheNotFoundException, CacheEvictedException, CacheExpiredException{
 		CacheElement element = container.get(cacheName);
 		if(element == null) {
-			throw new CacheNotFoundException();
+			throw new CacheNotFoundException("No se ha encontrado la cache");
 		}
 		if(isExpired(element)) {
-			throw new CacheExpiredException();
+			throw new CacheExpiredException("La cache ha expirado");
 		}
 		if(!element.isValid()) {
-			throw new CacheEvictedException();
+			throw new CacheEvictedException("La cache no es válida");
 		}
 		return element;
 	}
