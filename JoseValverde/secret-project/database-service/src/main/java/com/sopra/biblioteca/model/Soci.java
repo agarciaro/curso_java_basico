@@ -1,4 +1,4 @@
-package com.sopra.biblioteca;
+package com.sopra.biblioteca.model;
 
 import java.time.LocalDate;
 
@@ -7,14 +7,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-public class Socis {
+@AllArgsConstructor
+@NoArgsConstructor
+public class Soci {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer codi;
 	
 	private String nom;

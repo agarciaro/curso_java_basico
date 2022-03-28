@@ -32,13 +32,8 @@ public class PersonaServiceImpl implements PersonaService {
 		
 		Persona pDb = personaRepository.findById(personaId).get();
 		
-		if (p.getEdad() != null) {
-			pDb.setEdad(p.getEdad());
-		}
-		
-		if (p.getNombre() != null) {
-			pDb.setNombre(p.getNombre());
-		}
+		pDb.setNombre(p.getNombre() != null ? p.getNombre() : pDb.getNombre());
+		pDb.setEdad(p.getEdad() != null ? p.getEdad() : pDb.getEdad());
 		
 		return personaRepository.save(pDb);
 	}

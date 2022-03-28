@@ -3,10 +3,10 @@ package com.sopra.biblioteca.reporsitory;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.sopra.biblioteca.Socis;
+import com.sopra.biblioteca.model.Soci;
 
 @Repository
-public interface SocisRepository extends CrudRepository<Socis, Integer> {
+public interface SociRepository extends CrudRepository<Soci, Integer> {
 	
 	
 	
