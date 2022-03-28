@@ -162,3 +162,5 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/git,java,maven,eclipse,windows
+JoseValverde/secret-project/socis-service/src/main/resources/application-noah.properties
+JoseValverde/secret-project/llibres-service/src/main/resources/application-noah.properties
