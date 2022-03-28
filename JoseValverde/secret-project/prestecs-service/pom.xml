@@ -7,7 +7,7 @@
 		<artifactId>secret-project</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>socis-service</artifactId>
+	<artifactId>prestecs-service</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>com.sopra</groupId>

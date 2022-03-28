@@ -31,7 +31,34 @@
 		</dependency>
 	</dependencies>
 
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.sopra</groupId>
+				<artifactId>database-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sopra</groupId>
+				<artifactId>socis-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sopra</groupId>
+				<artifactId>llibres-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.sopra</groupId>
+				<artifactId>prestecs-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 	<modules>
 		<module>database-service</module>
+		<module>socis-service</module>
+		<module>llibres-service</module>
+		<module>prestecs-service</module>
 	</modules>
 </project>
