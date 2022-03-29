@@ -1,23 +1,32 @@
 package com.sopra.biblioteca.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.sopra.biblioteca.model.Exemplar;
+import com.sopra.biblioteca.model.Llibre;
+import com.sopra.biblioteca.reporsitory.ExemplarRepository;
 import com.sopra.biblioteca.reporsitory.LlibreRepository;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Service
 @Slf4j
+@Transactional
 public class DummiesService {
-	
+
 	@Autowired
 	LlibreRepository llibreRepository;
-	
+	@Autowired
+	ExemplarRepository exemplarRepository;
+
 	@Async
 	public void impTema(Integer codiLlibre) {
-		
+
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException e) {
@@ -27,4 +36,20 @@ public class DummiesService {
 		log.info("{}", llibreRepository.findById(1).get().getTema());
 
 	}
+
+	@Async
+	public void imprimirExemplars() {
+		try {
+			Thread.sleep(2000);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		List<Exemplar> allExemplars = (List<Exemplar>) exemplarRepository.findAll();
+		log.info("findAll ejecutado");
+		Llibre llibre = allExemplars.get(0).getLlibre();
+		log.info("{}", llibre);
+
+	}
+
 }

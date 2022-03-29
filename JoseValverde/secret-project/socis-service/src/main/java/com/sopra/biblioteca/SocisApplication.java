@@ -27,13 +27,16 @@ public class SocisApplication {
 
 	@PostConstruct
 	public void metodoPrueba() {
-		dummiesService.impTema(1);
-		dummiesService.impTema(2);
-		dummiesService.impTema(3);
-		dummiesService.impTema(4);
+//		dummiesService.impTema(1);
+//		dummiesService.impTema(2);
+//		dummiesService.impTema(3);
+//		dummiesService.impTema(4);
+		
+		dummiesService.imprimirExemplars();
+
 //		log.info("{}", llibreRepository.findById(1).get().getTema());
 //		log.info("{}", socisRepository.findAll());
-		
+
 	}
-	
+
 }
