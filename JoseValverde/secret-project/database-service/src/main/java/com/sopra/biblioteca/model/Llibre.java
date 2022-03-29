@@ -37,7 +37,7 @@ public class Llibre {
 	private Tema tema;
 	
 	@Exclude
-	@OneToMany(mappedBy = "llibre", fetch = FetchType.LAZY  )
+	@OneToMany(mappedBy = "llibre", fetch = FetchType.LAZY )
 	private Set<Exemplar> exemplars; 
 	
 

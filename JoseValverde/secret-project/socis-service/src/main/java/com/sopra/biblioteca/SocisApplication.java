@@ -25,7 +25,7 @@ public class SocisApplication {
 
 	}
 
-	@PostConstruct
+//	@PostConstruct
 	public void metodoPrueba() {
 //		dummiesService.impTema(1);
 //		dummiesService.impTema(2);

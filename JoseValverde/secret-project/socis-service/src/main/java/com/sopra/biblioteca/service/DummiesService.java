@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,6 +57,17 @@ public class DummiesService {
 //		Llibre llibre = allExemplars.get(0).getLlibre();
 //		log.info("{}", llibre);
 
+	}
+	
+	@Scheduled(fixedDelay = 2000)
+	public void holaMundo() {
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		log.info("Hola mundo! SCHEDULED");
 	}
 
 }

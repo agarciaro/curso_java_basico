@@ -16,3 +16,10 @@ INSERT INTO biblioteca.exemplar (num_exemplar,codi_llibre,any_edicio,num_edicio)
 	 (1002,1002,NULL,2),
 	 (1003,1002,NULL,2),
 	 (1004,1003,NULL,3);
+	 
+INSERT INTO biblioteca.soci (codi, nom,cognom,dni,adreca,codi_postal,ciutat,provincia,telefon,data_alta) VALUES
+	 (1000, 'Ernest','Valveny','11111111','elpont','25600','Balaguer','Lleida','111 11 11','1993-01-01'),
+	 (1001, 'Enric','Marti','22222222','elriu','25600','Balaguer','Lleida','222 22 22','1990-01-01'),
+	 (1002, 'David','Lloret','33333333','lacarretera','25600','Balaguer','Lleida',NULL,'1995-01-01');
+	 
+	 
