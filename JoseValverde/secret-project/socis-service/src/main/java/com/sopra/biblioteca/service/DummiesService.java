@@ -40,15 +40,21 @@ public class DummiesService {
 	@Async
 	public void imprimirExemplars() {
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(5000);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
-		List<Exemplar> allExemplars = (List<Exemplar>) exemplarRepository.findAll();
-		log.info("findAll ejecutado");
-		Llibre llibre = allExemplars.get(0).getLlibre();
-		log.info("{}", llibre);
+		Llibre llibre = llibreRepository.findById(1000).get();
+		
+//		for (Exemplar exemplar : llibre.getExemplars()) {
+//			
+//		}
+		
+//		List<Exemplar> allExemplars = (List<Exemplar>) exemplarRepository.findAll();
+//		log.info("findAll ejecutado");
+//		Llibre llibre = allExemplars.get(0).getLlibre();
+//		log.info("{}", llibre);
 
 	}
 
