@@ -1,6 +1,6 @@
 package com.sopra.biblioteca.controller;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -24,7 +24,7 @@ public class SocisRestController {
 	SocisService socisService;
 	
 	@GetMapping("/socis")
-	public Set<Soci> getAllSocis(){
+	public List<Soci> getAllSocis(){
 		return socisService.findAll();
 	}
 	

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th=http://www.thymeleaf.org>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>Socis Home</title>
+</head>
+<body>
+	<div class="container my-2">
+		<h1>Lista Socis</h1>
+		
+		<a th:href="@{/socis/nav-nou}" class="btn btn-primary btn-sm mb-3">Nou Soci</a>
+		
+		<table border="1" class="table table-striped table-responsive-md">
+			<thead>
+				<tr>
+					<th>Codi</th>
+					<th>Nom</th>
+					<th>Cognom</th>
+					<th>DNI</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="soci : ${socis}">
+					<td th:text="${soci.codi}"></td>
+					<td th:text="${soci.nom}"></td>
+					<td th:text="${soci.cognom}"></td>
+					<td th:text="${soci.dni}"></td>
+					<td><a th:href="@{/socis/nav-editar/{codi} (codi=${soci.codi})}" class="btn btn-secondary">Editar</a> <a th:href="@{/socis/eliminar/{codi} (codi=${soci.codi})}" class="btn btn-danger">Eliminar</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

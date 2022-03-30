@@ -1,12 +1,12 @@
 package com.sopra.biblioteca.service;
 
-import java.util.Set;
+import java.util.List;
 
 import com.sopra.biblioteca.model.Soci;
 
 public interface SocisService {
 	
-	public Set<Soci> findAll();
+	public List<Soci> findAll();
 	public Soci findByCodi(Integer codi);
 	public void delete(Integer codi);
 	public Soci update(Soci soci);
