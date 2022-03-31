@@ -11,7 +11,7 @@ const cargarPeliculas = async (limit) => {
 
             datos.forEach(pelicula => {
                 peliculas += `
-                    <div class="pelicula">
+                    <div class="pelicula" name="peliculaCard" id="${pelicula.id}">
                         <img class="poster" src="${pelicula.image}">
                         <h3 class="titulo">${pelicula.title}</h3>
                     </div>
@@ -19,6 +19,9 @@ const cargarPeliculas = async (limit) => {
             });
 
             document.getElementById('contenedor').innerHTML = peliculas;
+            Array.from(document.getElementsByName("peliculaCard")).forEach(peliculaCard => {
+                peliculaCard.addEventListener('click', () => {showModal(peliculaCard.getAttribute('id'))});
+            });
 
         } else if(respuesta.status === 400){
             console.error("Ocurrió un error al llamar a la API REST");
@@ -39,7 +42,7 @@ Array.from(filterButtons).forEach(button => {
 });
 
 const botonModal = document.getElementById("botonModal");
-botonModal.addEventListener('click', (event) => {showModal('2baf70d1-42bb-4437-b551-e5fed5a87abe');});
-
+/* botonModal.addEventListener('click', (event) => {showModal('2baf70d1-42bb-4437-b551-e5fed5a87abe');});
+ */
 
 cargarPeliculas(MAX_FILTER);

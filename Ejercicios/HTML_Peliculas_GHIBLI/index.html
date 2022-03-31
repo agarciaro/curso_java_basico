@@ -12,22 +12,27 @@
 </head>
 <body>
     <!-- Modal -->
-    <div id="peliculaModal" class="modal-container hidden">
-        <div>
-            <h1 id="modalTitulo"></h1>
-            <aside>
-                <figure>
-                    <img id="modalImagen">
-                </figure>
-            </aside>
-            <aside>
-                <ul>
-                    <li><span>descripcion</span><span id="modalDescripcion"></span></li>
-                    <li><span>director</span><span id="director"></span></li>
-                    <li><span>productor</span><span id="productor"></span></li>
-                </ul>
-            </aside>
-            <button class="filter_button" id="botonCerrarModal">Cerrar</button>
+    <div id="peliculaModal" class="modal-window hidden">
+        <div class="modal-container">
+            <div class="modal">
+                <h1 id="modalTitulo"></h1>
+                <aside class="aside-left">
+                    <figure>
+                        <img id="modalImagen">
+                    </figure>
+                </aside>
+                <aside class="aside-right">
+                    <div class="flex">
+                        <span class="label-modal">Descripcion: </span><span class="label-value-modal" id="modalDescripcion"></span>
+                        <span class="label-modal">Director: </span><span class="label-value-modal" id="modalDirector"></span>
+                        <span class="label-modal">Productor: </span><span class="label-value-modal" id="modalProductor"></span>
+                    </div>
+                </aside>
+                
+            </div>
+            <div class="panelModalFooter">
+                <button class="filter_button" id="botonCerrarModal">Cerrar</button>
+            </div>
         </div>
     </div>
     <header class="header">

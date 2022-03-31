@@ -12,6 +12,8 @@ const showModal = async (idPelicula) => {
             document.getElementById("modalTitulo").innerText = pelicula.title;
             document.getElementById("modalImagen").setAttribute('src', pelicula.image);
             document.getElementById("modalDescripcion").innerText = pelicula.description;
+            document.getElementById("modalDirector").innerText = pelicula.director;
+            document.getElementById("modalProductor").innerText = pelicula.producer;
 
             ////Ya tengo toda la pantalla preparada
             peliculaModal.classList.remove('hidden');
@@ -27,5 +29,10 @@ const closeModal = () => {
     peliculaModal.classList.add('hidden');
 };
 
+peliculaModal.addEventListener('click', (event) => {
+    if (event.target.getAttribute('id') === 'peliculaModal'){
+        closeModal();
+    }
+});
 botonCerrarModal.addEventListener('click', () => {closeModal();});
 
