@@ -8,15 +8,35 @@ body {
     background: #100a1d;
     color: #e0e0e0;
     font-family: 'Montserrat', sans-serif;
+    width: 70%;
+    margin: auto;
+}
+
+.header {
+    padding: 2rem;
+    padding-bottom: 10px;
+}
+
+.filter_button {
+/*     padding-left: 15px;
+    padding-right: 15px; */
+    padding: 5px 20px 5px 20px ;
+    border-radius: 5px;
+    border: 2px solid lightsalmon;
+    background: #322c3f;
+    font-weight: bold;
+    color: #e0e0e0;
+}
+
+.filter_button:hover{
+    cursor: pointer;
+    background: #3e3b46;
 }
 
 .contenedor {
-    width: 70%;
-    margin: 40px auto 100px auto;
-
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 40px;
+    gap: 30px;
 }
 
 .contenedor .pelicula {
