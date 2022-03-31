@@ -62,3 +62,8 @@ body {
     font-size: 18px;
     font-weight: 600;
 }
+
+.hidden {
+    /* visibility: hidden; */
+    display: none;
+}

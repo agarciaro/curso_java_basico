@@ -1,6 +1,6 @@
 const MAX_FILTER = 250;
 
-const cargarPeliculas = async(limit) => {
+const cargarPeliculas = async (limit) => {
     try{
         const respuesta = await fetch(`https://ghibliapi.herokuapp.com/films?limit=${limit}`);
         console.log(respuesta);
@@ -31,19 +31,15 @@ const cargarPeliculas = async(limit) => {
 
 }
 
-const filterButtons = document.getElementsByClassName("filter_button");
+const filterButtons = document.getElementsByName("botonFiltro");
 console.log(filterButtons);
 
 Array.from(filterButtons).forEach(button => {
     button.addEventListener('click', (event) => {cargarPeliculas(event.target.value === 'ALL'?MAX_FILTER:event.target.value)})
 });
 
-/* const boton5 = document.getElementById("filter5");
-const boton10 = document.getElementById("filter10");
-const botonAll = document.getElementById("filterAll"); */
+const botonModal = document.getElementById("botonModal");
+botonModal.addEventListener('click', (event) => {showModal('2baf70d1-42bb-4437-b551-e5fed5a87abe');});
 
-/* boton5.addEventListener('click', () => {cargarPeliculas(5);});
-boton10.addEventListener('click', () => {cargarPeliculas(10);});
-botonAll.addEventListener('click', () => {cargarPeliculas(MAX_FILTER);}); */
 
 cargarPeliculas(MAX_FILTER);
