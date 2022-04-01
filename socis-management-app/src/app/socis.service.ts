@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Soci } from './soci';
 
 @Injectable({
@@ -8,7 +9,7 @@ import { Soci } from './soci';
 })
 export class SocisService {
 
-  private apiBaseUrl = 'http://localhost:8081/api';
+  private apiBaseUrl = environment.apiBaseUrl;
 
 
   constructor(private http: HttpClient) {}
