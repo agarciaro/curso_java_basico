@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { HttpClientModule} from '@angular/common/http';
 import { SocisService } from './socis.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SocisService } from './socis.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [SocisService],
   bootstrap: [AppComponent]
