@@ -25,6 +25,10 @@ export class SocisService {
     return this.http.post<Soci>(`${this.apiBaseUrl}/socis`, soci);
   }
 
+  public updateSoci(soci: Soci): Observable<Soci> {
+    return this.http.put<Soci>(`${this.apiBaseUrl}/socis/${soci.codi}`, soci);
+  }
+
   public deleteSoci(codi: number): Observable<void> {
     return this.http.delete<void>(`${this.apiBaseUrl}/socis/${codi}`);
   }

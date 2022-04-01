@@ -13,6 +13,7 @@ export class AppComponent implements OnInit{
   public title = 'Gestión de Socis';
   public socis: Soci[] = [];
   public deleteSoci: Soci;
+  public editSoci: Soci;
 
   constructor(private socisService:SocisService){}
 
@@ -58,12 +59,28 @@ export class AppComponent implements OnInit{
     );
   }
 
+  public onUpdateSoci(soci: Soci):void {
+    this.socisService.updateSoci(soci).subscribe(
+      (response: Soci) => {
+        this.getAllSocis();
+      },
+      (error: HttpErrorResponse) => {
+        console.error(error.message);
+      }
+    );
+  }
+
   public onOpenModal(soci: Soci, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');
     button.type = 'button';
     button.style.display = 'none';
     button.setAttribute('data-toggle', 'modal');
+
+    if(mode === 'edit') {
+      this.editSoci = soci;
+      button.setAttribute('data-target', '#updateSociModal');
+    }
 
     if(mode === 'delete') {
       this.deleteSoci = soci;
