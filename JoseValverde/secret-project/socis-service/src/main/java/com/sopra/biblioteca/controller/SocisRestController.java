@@ -1,6 +1,7 @@
 package com.sopra.biblioteca.controller;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import javax.validation.Valid;
 
@@ -16,6 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.sopra.biblioteca.model.Soci;
 import com.sopra.biblioteca.service.SocisService;
 
+import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.Parameters;
+import io.swagger.v3.oas.annotations.info.Info;
+
+@OpenAPIDefinition(info = @Info(description = "Gestión de los socis de la biblioteca"))
 @RestController
 @RequestMapping("/api")
 public class SocisRestController {
@@ -23,13 +31,18 @@ public class SocisRestController {
 	@Autowired
 	SocisService socisService;
 	
+	@Operation(summary = "Retorna todos los socios registrados")
 	@GetMapping("/socis")
 	public List<Soci> getAllSocis(){
 		return socisService.findAll();
 	}
 	
+	@Operation(summary = "Retorna todos los socios registrados dado un código de soci válido")
+	@Parameters({
+		@Parameter(name = "codi", required = true, description = "El código del soci")
+	})
 	@GetMapping("/socis/{codi}")
-	public Soci getSociByCodi(@PathVariable Integer codi) {
+	public Soci getSociByCodi(@PathVariable Integer codi) throws NoSuchElementException {
 		return socisService.findByCodi(codi);
 	}
 	
