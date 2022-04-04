@@ -1,3 +1,8 @@
+INSERT INTO biblioteca.usuari VALUES 
+	('user1', '$2a$10$ThbA1vBeY8SAszTNBuR4iOoDkPOqbkapGtonHw4x.c0sBe90B2lPG'),
+	('user2', '$2a$10$iv1B7KAmPUXnAypKQW2DgOg3YHpg3SSvX0IIRuiF7KnO1V4C5m25u'),
+	('user3', '$2a$10$16rLBy83p9AoJ2tQ8rWHw.4heNtSq0kOoVNE43fJiz3gPDjpKSckO');
+
 INSERT INTO biblioteca.tema (codi,tema) VALUES 
 	 (1000,'SQL'),
 	 (1001,'Agua'),
