@@ -33,6 +33,9 @@ public class AuthenticationRestController {
 	@Autowired
 	PasswordEncoder encoder;
 	
+	@Autowired
+	JwtToken jwtToken;
+	
 	@PostMapping("/login")
 	public JwtToken login(@RequestBody UsuariCredencials credencials) {
 		
@@ -51,6 +54,13 @@ public class AuthenticationRestController {
 	@GetMapping("/password/{password}/encode")
 	public String encodePassword(@PathVariable String password) {
 		return encoder.encode(password);
+	}
+	
+	@GetMapping("/token/refresh")
+	public JwtToken refreshToken() {
+		String username = jwtTokenUtil.getUsernameFromToken(jwtToken.getToken());
+		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+		return new JwtToken(jwtTokenUtil.generateToken(userDetails));
 	}
 	
 }

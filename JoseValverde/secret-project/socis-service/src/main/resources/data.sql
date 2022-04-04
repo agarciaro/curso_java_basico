@@ -2,6 +2,18 @@ INSERT INTO biblioteca.usuari VALUES
 	('user1', '$2a$10$ThbA1vBeY8SAszTNBuR4iOoDkPOqbkapGtonHw4x.c0sBe90B2lPG'),
 	('user2', '$2a$10$iv1B7KAmPUXnAypKQW2DgOg3YHpg3SSvX0IIRuiF7KnO1V4C5m25u'),
 	('user3', '$2a$10$16rLBy83p9AoJ2tQ8rWHw.4heNtSq0kOoVNE43fJiz3gPDjpKSckO');
+	
+INSERT INTO biblioteca.rol VALUES 
+('ROLE_ADMIN', 'Administrador'),
+('ROLE_SOCI', 'Socio'),
+('ROLE_CONVIDAT', 'Invitado');
+
+INSERT INTO biblioteca.usuari_rol VALUES 
+('user1', 'ROLE_ADMIN'),
+('user2', 'ROLE_SOCI'),
+('user3', 'ROLE_CONVIDAT'),
+('user1', 'ROLE_SOCI'),
+('user1', 'ROLE_CONVIDAT');
 
 INSERT INTO biblioteca.tema (codi,tema) VALUES 
 	 (1000,'SQL'),

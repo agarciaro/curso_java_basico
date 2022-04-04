@@ -1,9 +1,6 @@
 package com.sopra.biblioteca.service;
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,7 +10,10 @@ import com.sopra.biblioteca.model.Usuari;
 import com.sopra.biblioteca.model.UsuariDetails;
 import com.sopra.biblioteca.reporsitory.UsuariRepository;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service
+@Slf4j
 public class UsuariDetalsService implements UserDetailsService {
 	
 	@Autowired

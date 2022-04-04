@@ -16,6 +16,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.sopra.biblioteca.model.JwtToken;
 import com.sopra.biblioteca.service.JwtTokenUtil;
 import com.sopra.biblioteca.service.UsuariDetalsService;
 
@@ -30,6 +31,9 @@ public class JwtTokenFilter extends OncePerRequestFilter{
 	
 	@Autowired
 	UsuariDetalsService usuariDetalsService;
+	
+	@Autowired
+	JwtToken jwtToken;
 	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -48,6 +52,8 @@ public class JwtTokenFilter extends OncePerRequestFilter{
 		 
 		UserDetails userDetails = usuariDetalsService.loadUserByUsername(username);
 		
+		log.info(" --- USERDETAILS:{}", userDetails);
+		
 		if(jwtTokenUtil.validateToken(token, userDetails)) {
 			UsernamePasswordAuthenticationToken authenticationToken = 
 					new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
@@ -56,6 +62,8 @@ public class JwtTokenFilter extends OncePerRequestFilter{
 			
 			SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 		}
+		
+		jwtToken.setToken(token);
 		
 		filterChain.doFilter(request, response);
 		
