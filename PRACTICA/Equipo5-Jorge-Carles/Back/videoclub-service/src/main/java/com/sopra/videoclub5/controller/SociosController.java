@@ -10,7 +10,6 @@ import com.sopra.videoclub5.service.SociosService;
 import lombok.extern.slf4j.Slf4j;
 
 @Controller
-@Slf4j
 public class SociosController {
 
 	@Autowired 
