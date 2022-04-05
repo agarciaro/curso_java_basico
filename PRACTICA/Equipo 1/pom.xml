@@ -31,4 +31,7 @@
 		</dependency>
 	</dependencies>
 	
-	</project>
+	<modules>
+		<module>service-database</module>
+	</modules>
+</project>
