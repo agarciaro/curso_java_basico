@@ -27,7 +27,7 @@ public class Director {
 	private String nombre;
 	private String nacionalidad;
 	
-	// Preguntar a Aitor
+	
 	@ManyToMany
 	@JoinTable(name = "pelicula_director", joinColumns = @JoinColumn(name = "id_director", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id"))
 	private Set<Pelicula> peliculas;

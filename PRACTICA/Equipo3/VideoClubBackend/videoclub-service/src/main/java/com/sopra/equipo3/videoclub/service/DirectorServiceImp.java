@@ -22,8 +22,7 @@ public class DirectorServiceImp implements DirectorService {
 
 	@Override
 	public Director findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return directorRepository.findById(id).get();
 	}
 
 	@Override
@@ -33,13 +32,12 @@ public class DirectorServiceImp implements DirectorService {
 
 	@Override
 	public Director update(Director director) {
-		// TODO Auto-generated method stub
-		return null;
+		return directorRepository.save(director);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		directorRepository.deleteById(id);
 
 	}
 

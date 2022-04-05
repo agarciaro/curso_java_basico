@@ -1,11 +1,14 @@
 package com.sopra.equipo3.videoclub.repository;
 
-import org.springframework.data.repository.CrudRepository;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import com.sopra.equipo3.videoclub.model.Pelicula;
 
 @Repository
-public interface PeliculaRepository extends CrudRepository<Pelicula, Long> {
-
+public interface PeliculaRepository extends JpaRepository<Pelicula, Long> {
+	
+	// List<Pelicula> findByDirectores(Long idDirector); 
 }
