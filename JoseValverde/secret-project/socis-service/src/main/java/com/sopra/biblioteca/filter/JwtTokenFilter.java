@@ -39,24 +39,24 @@ public class JwtTokenFilter extends OncePerRequestFilter{
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {	
 		
-		final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
-		if(authHeader == null || !authHeader.startsWith("Bearer ")) {
+		final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);  //mira header
+		if(authHeader == null || !authHeader.startsWith("Bearer ")) {    // si no lleva token
 			log.warn("No se ha podido extraer el token");
 			filterChain.doFilter(request, response);
 			return;
 		}
 		
-		final String token = authHeader.split(" ")[1].trim();
+		final String token = authHeader.split(" ")[1].trim();   //separa token d e la peticion
 		
-		String username = jwtTokenUtil.getUsernameFromToken(token);
+		String username = jwtTokenUtil.getUsernameFromToken(token);    //crea variable username con el user sacado del token
 		 
-		UserDetails userDetails = usuariDetalsService.loadUserByUsername(username);
+		UserDetails userDetails = usuariDetalsService.loadUserByUsername(username); //crea userdetails con el nombre del usuario 
 		
 		log.info(" --- USERDETAILS:{}", userDetails);
 		
 		if(jwtTokenUtil.validateToken(token, userDetails)) {
 			UsernamePasswordAuthenticationToken authenticationToken = 
-					new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+					new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());  //crea autenticacion con el token
 			
 			authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 			
