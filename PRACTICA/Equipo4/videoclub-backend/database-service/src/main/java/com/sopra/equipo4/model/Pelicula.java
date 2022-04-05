@@ -41,11 +41,11 @@ public class Pelicula {
 	)
 	private Set<Director> directores;
 	
-	@ManyToMany
-	@JoinTable(name = "pelicula_actor",
-		joinColumns = @JoinColumn(name = "pelicula_id", referencedColumnName = "id"),
-		inverseJoinColumns = @JoinColumn(name="actor_id", referencedColumnName = "id")
-	)
-	private Set<Actor> actores;
+//	@ManyToMany
+//	@JoinTable(name = "pelicula_actor",
+//		joinColumns = @JoinColumn(name = "pelicula_id", referencedColumnName = "id"),
+//		inverseJoinColumns = @JoinColumn(name="actor_id", referencedColumnName = "id")
+//	)
+//	private Set<Actor> actores;
 
 }
