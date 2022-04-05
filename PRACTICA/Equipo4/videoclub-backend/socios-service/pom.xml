@@ -3,20 +3,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.sopra.equipo3</groupId>
-		<artifactId>video-club-backend</artifactId>
+		<groupId>com.sopra.equipo4</groupId>
+		<artifactId>videoclub-backend</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>videoclub-service</artifactId>
+	<artifactId>socios-service</artifactId>
 
 	<dependencies>
 		<dependency>
-			<groupId>com.sopra.equipo3</groupId>
+			<groupId>com.sopra.equipo4</groupId>
 			<artifactId>database-service</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 	</dependencies>
 </project>
