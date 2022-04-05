@@ -1,6 +1,11 @@
 package com.sopra.videoclub.model;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,17 +20,20 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Socio {
-
+public class Alquiler {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer numSocio;
-	private String nombre;
-	private String direccion;
-	private String telefono;
+	private Integer id;
+	@Column(nullable = false)
+	private LocalDate fecInicio;
+	private LocalDate fecDev;
 	
 	@ManyToOne
-	@JoinColumn(name = "avalado_por",referencedColumnName = "numSocio")
-	private Socio avaladoPor;
+	@JoinColumn(name = "num_ejemplar")
+	private Ejemplar ejemplar;
 	
+	@ManyToOne
+	@JoinColumn(name = "num_socio")
+	private Socio socio;
+
 }

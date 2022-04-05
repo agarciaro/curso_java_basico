@@ -18,6 +18,12 @@ public class SocioServiceImpl implements SocioService{
 	public List<Socio> findAll() {
 		return (List<Socio>) socioRepository.findAll();
 	}
+
+	@Override
+	public Socio findById() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
