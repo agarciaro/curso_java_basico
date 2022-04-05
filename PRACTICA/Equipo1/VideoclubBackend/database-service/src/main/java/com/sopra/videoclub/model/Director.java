@@ -1,10 +1,11 @@
 package com.sopra.videoclub.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,16 +14,13 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Actor {
+public class Director {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer codi;
-//	@Column(nullable = false)
-	@NotNull
-
+	private Integer id;
+	@Column(nullable = false)
 	private String nombre;
 	private String nacionalidad;
-	private String sexo;
 
 }
