@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +31,9 @@ public class Pelicula {
 	private String productora;
 	private LocalDate fecha;
 	private String url;
+	
+	@OneToMany(mappedBy="pelicula")
+	private Set<Ejemplar> ejemplares;
 	
 	@ManyToMany
 	@JoinTable(
