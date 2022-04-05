@@ -33,7 +33,7 @@ public class Alquiler {
 	@JoinColumn(name = "id_socio")
 	private Socio socio;
 
-	@Column(nullable= false)
+	@Column(nullable = false)
 	private LocalDate fechaInicio;
 	private LocalDate fechaDevolucion;
 
