@@ -1,5 +1,7 @@
 package com.sopra.equipo3.videoclub.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,41 +11,39 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.sopra.equipo3.videoclub.model.Director;
-import com.sopra.equipo3.videoclub.service.DirectorService;
 
-import java.util.List;
+import com.sopra.equipo3.videoclub.model.Socio;
+import com.sopra.equipo3.videoclub.service.SocioService;
 
 @RestController
-@RequestMapping("/api/director")
-public class DirectorRestController {
+@RequestMapping("/api/socio")
+public class SocioRestController {
 
 	@Autowired
-	DirectorService directorService;
+	SocioService socioService;
 
 	@GetMapping()
-	public List<Director> getAllDirectors() {
-		return directorService.findAll();
+	public List<Socio> getAllSocios() {
+		return socioService.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public Director getDirector(@PathVariable Long id) {
-		return directorService.findById(id);
+	public Socio getDirector(@PathVariable Long id) {
+		return socioService.findById(id);
 	}
 
 	@PostMapping()
-	public Director insertDirector(@RequestBody Director director) {
-		return directorService.insert(director);
+	public Socio insertSocio(@RequestBody Socio socio) {
+		return socioService.insert(socio);
 	}
 
 	@PutMapping()
-	public Director updateDirector(@RequestBody Director director) {
-		return directorService.update(director);
+	public Socio updateDirector(@RequestBody Socio socio) {
+		return socioService.update(socio);
 	}
 
 	@DeleteMapping("/{id}")
 	public void deleteDirector(@PathVariable Long id) {
-		directorService.delete(id);
+		socioService.delete(id);
 	}
-
 }

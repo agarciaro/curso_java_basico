@@ -1,5 +1,7 @@
 package com.sopra.equipo3.videoclub.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,41 +11,39 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.sopra.equipo3.videoclub.model.Director;
-import com.sopra.equipo3.videoclub.service.DirectorService;
 
-import java.util.List;
+import com.sopra.equipo3.videoclub.model.Actor;
+import com.sopra.equipo3.videoclub.service.ActorService;
 
 @RestController
-@RequestMapping("/api/director")
-public class DirectorRestController {
-
+@RequestMapping("/api/actor")
+public class ActorRestController {
 	@Autowired
-	DirectorService directorService;
+	ActorService actorService;
 
 	@GetMapping()
-	public List<Director> getAllDirectors() {
-		return directorService.findAll();
+	public List<Actor> getAllDirectors() {
+		return actorService.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public Director getDirector(@PathVariable Long id) {
-		return directorService.findById(id);
+	public Actor getDirector(@PathVariable Long id) {
+		return actorService.findById(id);
 	}
 
 	@PostMapping()
-	public Director insertDirector(@RequestBody Director director) {
-		return directorService.insert(director);
+	public Actor insertActor(@RequestBody Actor actor) {
+		return actorService.insert(actor);
 	}
 
 	@PutMapping()
-	public Director updateDirector(@RequestBody Director director) {
-		return directorService.update(director);
+	public Actor updateDirector(@RequestBody Actor actor) {
+		return actorService.update(actor);
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteDirector(@PathVariable Long id) {
-		directorService.delete(id);
+	public void deleteActor(@PathVariable Long id) {
+		actorService.delete(id);
 	}
 
 }

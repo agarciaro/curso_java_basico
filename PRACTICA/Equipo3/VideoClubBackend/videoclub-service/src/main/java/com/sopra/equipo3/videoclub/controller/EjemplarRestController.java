@@ -1,5 +1,7 @@
 package com.sopra.equipo3.videoclub.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,41 +11,40 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.sopra.equipo3.videoclub.model.Director;
-import com.sopra.equipo3.videoclub.service.DirectorService;
 
-import java.util.List;
+import com.sopra.equipo3.videoclub.model.Ejemplar;
+import com.sopra.equipo3.videoclub.service.EjemplarService;
 
 @RestController
-@RequestMapping("/api/director")
-public class DirectorRestController {
-
+@RequestMapping("/api/ejemplar")
+public class EjemplarRestController {
 	@Autowired
-	DirectorService directorService;
+	EjemplarService ejemplarService;
 
 	@GetMapping()
-	public List<Director> getAllDirectors() {
-		return directorService.findAll();
+	public List<Ejemplar> getAllDirectors() {
+		return ejemplarService.findAll();
 	}
 
 	@GetMapping("/{id}")
-	public Director getDirector(@PathVariable Long id) {
-		return directorService.findById(id);
+	public Ejemplar getEjemplar(@PathVariable Long id) {
+		return ejemplarService.findById(id);
 	}
 
 	@PostMapping()
-	public Director insertDirector(@RequestBody Director director) {
-		return directorService.insert(director);
+	public Ejemplar insertEjemplar(@RequestBody Ejemplar ejemplar) {
+		return ejemplarService.insert(ejemplar);
 	}
 
 	@PutMapping()
-	public Director updateDirector(@RequestBody Director director) {
-		return directorService.update(director);
+	public Ejemplar updateEjempla(@RequestBody Ejemplar ejemplar) {
+		return ejemplarService.update(ejemplar);
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteDirector(@PathVariable Long id) {
-		directorService.delete(id);
+	public void deleteEjempla(@PathVariable Long id) {
+		ejemplarService.delete(id);
+		
 	}
 
 }
