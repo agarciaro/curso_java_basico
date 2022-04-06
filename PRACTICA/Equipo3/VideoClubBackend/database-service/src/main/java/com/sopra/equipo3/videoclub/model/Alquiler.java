@@ -2,10 +2,12 @@ package com.sopra.equipo3.videoclub.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,17 +17,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-//@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {})})
+
 public class Alquiler {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	
+	@EmbeddedId
+	private AlquilerPK id;
+
+	@ManyToOne
+	@MapsId("idEjemplar")
+	@JoinColumn(name = "id_ejemplar")
+	private Ejemplar ejemplar;
+
+	@ManyToOne
+	@MapsId("idSocio")
+	@JoinColumn(name = "id_socio")
+	private Socio socio;
+
+	@Column(nullable = false)
 	private LocalDate fechaInicio;
 	private LocalDate fechaDevolucion;
-	
-	
 
 }

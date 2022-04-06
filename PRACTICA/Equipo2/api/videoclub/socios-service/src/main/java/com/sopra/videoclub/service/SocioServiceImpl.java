@@ -20,6 +20,7 @@ public class SocioServiceImpl implements SocioService{
 	}
 
 	@Override
+
 	public Socio findById(Integer id) {
 		 return socioRepository.findById(id).get();
 	}

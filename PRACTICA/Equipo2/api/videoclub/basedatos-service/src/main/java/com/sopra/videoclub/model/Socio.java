@@ -1,14 +1,11 @@
 package com.sopra.videoclub.model;
 
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,8 +24,8 @@ public class Socio {
 	private String direccion;
 	private String telefono;
 	
-//	
-//	@OneToMany(targetEntity = Socio.class, mappedBy = "numSocio", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//	private Set<Socio> socios;
+	@ManyToOne
+	@JoinColumn(name = "avalado_por",referencedColumnName = "numSocio")
+	private Socio avaladoPor;
 	
 }
