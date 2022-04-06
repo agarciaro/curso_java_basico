@@ -1,0 +1,123 @@
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  padding-right: 1.5vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 1.8vw;
+}
+
+.nav-links li {
+  margin: 1rem;
+}
+
+.nav-links a {
+  border: 1px solid transparent;
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem;
+}
+
+.nav-links a:hover,
+.nav-links a:active,
+.nav-links a.active {
+  background: #7cd1b8;
+  border: 0.1px hidden #7cd1b8;
+  border-radius: 40px;
+  color: white;
+}
+
+.nav-links button {
+  cursor: pointer;
+  border: 1px double #7cd1b8;
+  border-radius: 20px;
+  color: white;
+  background: transparent;
+  padding: 0.5rem;
+  font: inherit;
+  text-shadow: #0b4230 0.1em 0.1em 0.2em;
+}
+
+.nav-links button:focus {
+  outline: none;
+}
+
+.nav-links button:hover,
+.nav-links button:active {
+  background: #7cd1b8;
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .nav-links {
+    flex-direction: row;
+  }
+
+  .nav-links li {
+    margin: 0 0.5rem;
+  }
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    text-shadow: #0b4230 0.1em 0.1em 0.2em;
+  }
+
+  .nav-links button {
+    border: 5px double #7cd1b8;
+    border-radius: 20px;
+    color: white;
+    background: #f8bb52;
+  }
+
+  .nav-links button:hover,
+  .nav-links button:active {
+    background: #fabb51;
+    color: white;
+  }
+}
+.main-navigation__header-nav .batton {
+  background: linear-gradient(-45deg, #00b545, #4ee7c6, #27c8b7, #077936);
+  background-size: 800% 400%;
+  padding: 0.3vw 2vw;
+  display: inline-block;
+  border: none;
+  border-radius: 3vw;
+  font-size: 1.8vw;
+  color: white;
+  transition: all .5s ease-in-out;
+  animation: gradient 6s infinite cubic-bezier(.62, .28, .23, .99) both;
+ }
+ 
+ .main-navigation__header-nav .batton:hover {
+  animation: gradient 3s infinite;
+  transform: scale(1.05);
+  background: linear-gradient(-45deg, #00b545, #4ee7c6, #27c8b7, #077936);
+  background-size: 800% 400%;
+  animation: gradient 10s infinite cubic-bezier(.62, .28, .23, .99) both;
+ }
+ 
+ .main-navigation__header-nav .batton:active {
+  animation: gradient 3s infinite;
+  transform: scale(0.8);
+ }
+ 
+ @keyframes gradient {
+  0% {
+   background-position: 0% 50%;
+  }
+ 
+  50% {
+   background-position: 100% 50%;
+  }
+ 
+  100% {
+   background-position: 0% 50%;
+  }
+ }
