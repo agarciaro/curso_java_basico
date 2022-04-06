@@ -1,17 +1,15 @@
 package com.sopra.equipo4.model;
 
 import java.time.LocalDate;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
-import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -37,8 +35,10 @@ public class Alquiler {
 	private Ejemplar ejemplar;
 	
 	@Column(name = "fecha_inicio")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate fechaInicio;
 	@Column(name = "fecha_devolucion")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate fechaDevolucion;
 	
 }
