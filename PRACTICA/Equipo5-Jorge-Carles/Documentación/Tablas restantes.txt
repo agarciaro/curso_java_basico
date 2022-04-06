@@ -1,0 +1,3 @@
+Usuarios, roles e invitaciones
+
+https://www.baeldung.com/jpa-limit-query-results

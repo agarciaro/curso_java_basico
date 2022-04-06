@@ -1,33 +1,31 @@
 package com.sopra.videoclub.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.sopra.videoclub.model.Socio;
 import com.sopra.videoclub.repository.SocioRepository;
 
 @Service
-public class SocioServiceImpl implements SocioService{
+public class SocioServiceImpl implements SocioService {
 
 	@Autowired
 	SocioRepository socioRepository;
 
 	@Override
-	public List<Socio> findAll() {
+	public List<Socio> findAllSocios() {
 		return (List<Socio>) socioRepository.findAll();
 	}
 
 	@Override
-
-	public Socio findById(Integer id) {
-		 return socioRepository.findById(id).get();
+	public Socio findSocioById(Integer id) {
+		return socioRepository.findById(id).get();
 	}
 
 	@Override
-	public Socio insertSocio(Socio socio) {
-		return socioRepository.save(socio);
+	public void deleteSocio(Integer id) {
+		socioRepository.deleteById(id);
+
 	}
 
 	@Override
@@ -36,9 +34,8 @@ public class SocioServiceImpl implements SocioService{
 	}
 
 	@Override
-	public void deleteSocio(Integer id) {
-		socioRepository.deleteById(id);	
+	public Socio insertSocio(Socio socio) {
+		return socioRepository.save(socio);
 	}
-	
-	
+
 }
