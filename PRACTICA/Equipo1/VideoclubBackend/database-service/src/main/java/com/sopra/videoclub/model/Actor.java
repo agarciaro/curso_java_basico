@@ -18,7 +18,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//@Entity
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,7 +27,7 @@ public class Actor {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id_actor;
-//	@Column(nullable = false)
+	@Column(nullable = false)
 	@NotNull
 	
 	private String nombre;
