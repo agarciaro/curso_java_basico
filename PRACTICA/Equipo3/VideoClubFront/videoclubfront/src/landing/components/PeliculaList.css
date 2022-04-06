@@ -1,7 +1,7 @@
 .movie-list {
     list-style: none;
     margin: 1.5vw auto;
-    padding: 0 9%  0;
+    margin-top: 10vw;
     width: 100%;
     display: flex;
     justify-content: center;

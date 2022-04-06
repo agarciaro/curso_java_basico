@@ -3,7 +3,7 @@
     margin: 4px;
     width: 50%;
     padding: 1%;
-    flex: 0 1 calc(33% - 8px);
+    flex: 0 1 calc(19% - 8px);
   }
   
   
@@ -15,7 +15,7 @@
   .movie-item__info {
     padding: 1rem;
     text-align: center;
-    height: 11vw;
+    height: 5vw;
   }
   
   .movie-item__image {
@@ -30,24 +30,24 @@
   }
   
   .movie-item__info h2,
-  .movie-item__info h3,
+  .movie-item__info h3
   .movie-item__info p {
     margin: 0 1.5vw 0.5vw;
-    font-size: 2.3vw;
+    font-size: 1.8vw;
     font-family: "Staatliches" !important;
-    color: #3e8e7e;
+    color: #247eb3;
   }
   .movie-item__info p {
-    font-size: 1.3vw;
+    font-size: 0.9vw;
   }
-  .movie-item__actions {
+  /* .movie-item__actions {
     text-align: center;
     border-top: 1px hidden #ccc;
     background-color: #3e8e7e;
     height: 5vw;
     display:flex;
   }
-  
+   */
   .movie-item__modal-content {
     padding: 0;
   }

@@ -16,11 +16,11 @@ const PeliculaItem = (props) => {
               alt={props.titulo}
             />
           </div>
-          <div className="market-item__info">
+          <div className="movie-item__info">
             <h2>{props.titulo}</h2>
             <p>{props.productora}</p>
           </div>
-          <div className="market-item__actions">
+          <div className="movie-item__actions">
           </div>
         </Card>
       </li>
