@@ -28,7 +28,8 @@ public class ActorPelicula {
 	@MapsId("idPelicula")
 	@JoinColumn(name = "id_pelicula")
 	private Pelicula pelicula;
-
+	
+	@Column(columnDefinition = "varchar(60) check (papel in ('PRINCIPAL', 'SECUNDARIO'))")
 	private String papel;
 
 }

@@ -14,9 +14,9 @@ public class ActorPeliculaKey implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "id_actor")
-	private Long idActor;
+	private Integer idActor;
 	@Column(name = "id_pelicula")
-	private Long idPelicula;
+	private Integer idPelicula;
 }
 
 
