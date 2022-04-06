@@ -2,6 +2,8 @@ package com.sopra.equipo3.videoclub.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +11,7 @@ import com.sopra.equipo3.videoclub.model.Pelicula;
 import com.sopra.equipo3.videoclub.repository.PeliculaRepository;
 
 @Service
+@Transactional
 public class PeliculaServiceImp implements PeliculaService {
 
 	@Autowired
@@ -22,13 +25,12 @@ public class PeliculaServiceImp implements PeliculaService {
 
 	@Override
 	public List<Pelicula> findAllByDirector(Long id) {
-		return null;
+		return peliculaRepository.findByDirectoresId(id);
 	}
 
 	@Override
 	public Pelicula findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return peliculaRepository.findById(id).get();
 	}
 
 	@Override
@@ -38,13 +40,12 @@ public class PeliculaServiceImp implements PeliculaService {
 
 	@Override
 	public Pelicula update(Pelicula pelicula) {
-		// TODO Auto-generated method stub
-		return null;
+		return peliculaRepository.save(pelicula);
 	}
 
 	@Override
 	public void delete(Long id) {
-		// TODO Auto-generated method stub
+		peliculaRepository.deleteById(id);
 
 	}
 

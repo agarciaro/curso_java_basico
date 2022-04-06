@@ -19,7 +19,7 @@ public class Ejemplar {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long numeroEjemplar;
-	private boolean estadoCon;
+	private String estadoCon;
 	
 	@ManyToOne
 	@JoinColumn(name="id_pelicula", nullable=false)
