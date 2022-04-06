@@ -1,5 +1,7 @@
 package com.sopra.videoclub5.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,6 +32,9 @@ public class Socio {
 	private String nombre;
 	private String direccion;
 	private String telefono;
+	
+	@OneToMany(mappedBy = "socio")
+    Set<Alquiler> ejemplarAlquilado ;
 
 	@ManyToOne
 	@JoinColumn(name = "avalado_por", nullable = true)
