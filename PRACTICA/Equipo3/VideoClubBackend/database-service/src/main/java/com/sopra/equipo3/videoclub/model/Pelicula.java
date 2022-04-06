@@ -2,6 +2,8 @@ package com.sopra.equipo3.videoclub.model;
 
 import java.time.LocalDate;
 import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,7 +32,9 @@ public class Pelicula {
 	private String nacionalidad;
 	private String productora;
 	private LocalDate fecha;
+	private String url_imagen;
 	private String url;
+	private String sinopsis;
 
 	@Exclude
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
@@ -39,7 +43,7 @@ public class Pelicula {
 
 	@Exclude
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "pelicula_director", joinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_director", referencedColumnName = "id"))
 	private Set<Director> directores;
 }

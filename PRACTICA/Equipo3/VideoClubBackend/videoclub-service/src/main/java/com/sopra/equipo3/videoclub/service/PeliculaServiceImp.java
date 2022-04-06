@@ -5,6 +5,8 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.sopra.equipo3.videoclub.model.Pelicula;
@@ -18,14 +20,20 @@ public class PeliculaServiceImp implements PeliculaService {
 	PeliculaRepository peliculaRepository;
 
 	@Override
-	public List<Pelicula> findAll() {
+	public Page<Pelicula> findAllPeliculas(Pageable pageable) {
 		
-		return peliculaRepository.findAll();
+		return peliculaRepository.findAll( pageable);
 	}
 
 	@Override
-	public List<Pelicula> findAllByDirector(Long id) {
-		return peliculaRepository.findByDirectoresId(id);
+	public Page<Pelicula> findAllFilter(Pageable pageable, String filter) {
+		
+		return peliculaRepository.findByTituloIgnoreCaseContaining( pageable,  filter);
+	}
+
+	@Override
+	public Page<Pelicula> findAllByDirector(Pageable pageable, Long idDirector) {
+		return peliculaRepository.findByDirectoresId( pageable ,idDirector);
 	}
 
 	@Override
@@ -48,6 +56,7 @@ public class PeliculaServiceImp implements PeliculaService {
 		peliculaRepository.deleteById(id);
 
 	}
+
 
 
 

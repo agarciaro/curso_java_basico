@@ -27,7 +27,6 @@ public class SocioServiceImpl implements SocioService{
 
 	@Override
 	public Socio insertSocio(Socio socio) {
-		
 		return socioRepository.save(socio);
 	}
 
@@ -38,9 +37,7 @@ public class SocioServiceImpl implements SocioService{
 
 	@Override
 	public void deleteSocio(Integer id) {
-		
-		socioRepository.deleteById(id);
-		
+		socioRepository.deleteById(id);	
 	}
 	
 	
