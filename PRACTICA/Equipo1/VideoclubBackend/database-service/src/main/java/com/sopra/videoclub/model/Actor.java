@@ -33,11 +33,6 @@ public class Actor {
 	private String nacionalidad;
 	private String sexo;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "actor_pelicula", 
-			joinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id"),
-			inverseJoinColumns = @JoinColumn(name= "id_actor", referencedColumnName = "id")
-	)
-	private Set<Pelicula> peliculas = new HashSet<>();
+
 
 }
