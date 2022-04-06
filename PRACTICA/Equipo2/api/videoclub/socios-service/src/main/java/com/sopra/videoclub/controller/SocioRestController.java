@@ -51,9 +51,7 @@ public class SocioRestController {
 	
 	@DeleteMapping("/socios/{id}")
 	public void deleteSocio(@PathVariable("id")Integer id){
-		
 		socioService.deleteSocio(id);
-		
 	}
 
 }
