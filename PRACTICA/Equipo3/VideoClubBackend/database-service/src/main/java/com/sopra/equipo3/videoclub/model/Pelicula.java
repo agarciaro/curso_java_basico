@@ -32,7 +32,9 @@ public class Pelicula {
 	private String nacionalidad;
 	private String productora;
 	private LocalDate fecha;
+	private String url_imagen;
 	private String url;
+	private String sinopsis;
 
 	@Exclude
 	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

@@ -1,7 +1,7 @@
 INSERT INTO videoclub1.actor VALUES 
 	(1000, 'espanyola', 'actor1', 'masculino'),
-	(1001,, 'inglesa', 'actor2', 'masculino'),
-	(1002,, 'francesa', 'actor3', 'femenino');
+	(1001, 'inglesa', 'actor2', 'masculino'),
+	(1002, 'francesa', 'actor3', 'femenino');
 	
 INSERT INTO videoclub1.pelicula VALUES 
 	(2000, '1993-01-01', 'guatemalteca', 'ghimly', 'Jesucristo cazavampiros'),
