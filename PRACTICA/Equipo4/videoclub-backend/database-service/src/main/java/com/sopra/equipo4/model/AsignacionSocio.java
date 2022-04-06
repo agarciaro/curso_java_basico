@@ -14,11 +14,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "invitacion")
+@Table(name = "asignacion_codigo_socio")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class InvitacionSocio implements Serializable {
+public class AsignacionSocio implements Serializable {
 	/**
 	 * 
 	 */
