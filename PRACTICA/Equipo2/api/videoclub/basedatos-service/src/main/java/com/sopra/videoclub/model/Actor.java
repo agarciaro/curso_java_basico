@@ -1,10 +1,13 @@
 package com.sopra.videoclub.model;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,8 +26,7 @@ public class Actor {
 	private String nacionalidad;
 	private String sexo;
 	
-//	@Column(columnDefinition = "VARCHAR(60) CHECK (rol IN ('PRINCIPAL', 'SECUNDARIO'))")
-//	private String rol;
 	
-
+	@OneToMany(mappedBy = "actor")
+	private Set<PeliculaActor> peliculas;
 }
