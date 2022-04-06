@@ -39,7 +39,7 @@ public class Pelicula {
 		joinColumns = @JoinColumn(name="id_director", referencedColumnName = "id"),
 		inverseJoinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id")
 	)
-	private Set<Director> directores;
+	private List<Director> directores;
 	
 //	@ManyToMany
 //	@JoinTable(
