@@ -5,13 +5,21 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sopra.equipo4.model.AsignacionSocio;
 import com.sopra.equipo4.model.Socio;
+import com.sopra.equipo4.repository.AsignacionSocioRepository;
 import com.sopra.equipo4.repository.SocioRepository;
 @Service
 public class SocioServiceImpl implements SocioService {
 	
 	@Autowired
 	SocioRepository socioRepository;
+	
+	@Autowired
+	AsignacionSocioRepository asignacionSocioRepository;
+	
+	@Autowired
+	UtilsService utilsService;
 
 	@Override
 	public List<Socio> findAll() {
@@ -35,7 +43,14 @@ public class SocioServiceImpl implements SocioService {
 
 	@Override
 	public Socio insertSocio(Socio socio) {
-		return socioRepository.save(socio);
+				
+		Socio nuevoSocio = socioRepository.save(socio);
+		
+		AsignacionSocio asignacionSocio = new AsignacionSocio(nuevoSocio, utilsService.generateCode());
+		
+		asignacionSocioRepository.save(asignacionSocio);
+		
+		return nuevoSocio;
 	}
 
 }

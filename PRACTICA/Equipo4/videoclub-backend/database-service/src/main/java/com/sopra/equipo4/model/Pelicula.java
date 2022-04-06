@@ -29,6 +29,7 @@ public class Pelicula {
 	private String nacionalidad;
 	private String productora;
 	private LocalDate fecha;
+	private String url;
 
 	@OneToMany(mappedBy = "pelicula")
 	private Set<Ejemplar> ejemplares;

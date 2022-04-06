@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,6 +34,7 @@ public class Pelicula {
 	private String nacionalidad;
 	private String productora;
 	private LocalDate fecha;
+	private String url;
 
 	@ManyToMany 
 	@JoinTable (
@@ -41,11 +44,12 @@ public class Pelicula {
 	)
 	private List<Director> directores;
 	
-//	@ManyToMany
-//	@JoinTable(
-//		name = "pelicula_actor",
-//		joinColumns = @JoinColumn (name = "id_actor", referencedColumnName = "id" ),
-//		inverseJoinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id")
-//	)
-//	private Set<Actor> actores;
+
+	
+	@OneToMany(mappedBy = "pelicula")
+    Set<PeliculaActor> actores;
+	
+	
+	
+	
 }

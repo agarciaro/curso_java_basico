@@ -41,7 +41,7 @@ public class EjemplarRestController {
 	public Ejemplar updateEjemplar(@RequestBody Ejemplar ejemplar) {
 		return ejemplarService.updateEjemplar(ejemplar);
 	}
-
+	
 	@PostMapping("/ejemplares")
 	public Ejemplar insertEjemplar(@RequestBody Ejemplar ejemplar) {
 		return ejemplarService.insertEjemplar(ejemplar);

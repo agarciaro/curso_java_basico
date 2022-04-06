@@ -31,12 +31,9 @@ public class Alquiler {
 
 	@ManyToOne
 	@MapsId("numEjemplar")
-	@JoinColumn(referencedColumnName = "numEjemplar")
+	@JoinColumn(name = "num_ejemplar", referencedColumnName = "numEjemplar")
 	private Ejemplar ejemplar;
 	
-	@Column(name = "fecha_inicio")
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
-	private LocalDate fechaInicio;
 	@Column(name = "fecha_devolucion")
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
 	private LocalDate fechaDevolucion;

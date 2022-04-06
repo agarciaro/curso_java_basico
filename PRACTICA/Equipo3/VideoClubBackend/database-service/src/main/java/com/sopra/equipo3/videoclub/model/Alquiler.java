@@ -32,9 +32,8 @@ public class Alquiler {
 	@MapsId("idSocio")
 	@JoinColumn(name = "id_socio")
 	private Socio socio;
+	
 
-	@Column(nullable = false)
-	private LocalDate fechaInicio;
 	private LocalDate fechaDevolucion;
 
 }

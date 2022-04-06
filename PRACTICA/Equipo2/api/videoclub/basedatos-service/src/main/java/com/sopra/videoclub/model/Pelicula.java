@@ -2,10 +2,10 @@ package com.sopra.videoclub.model;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,7 +16,6 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode.Exclude;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -32,9 +31,11 @@ public class Pelicula {
 	private String nacionalidad;
 	private String productora;
 	private LocalDate fecha;
+	private String url;
 	
-	@ManyToMany(cascade = CascadeType.ALL)
-	private List<Actor> actores;
+	
+	@OneToMany(mappedBy = "pelicula")
+	private Set<PeliculaActor> actores;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
@@ -42,7 +43,7 @@ public class Pelicula {
 			joinColumns = @JoinColumn(name ="director_id", referencedColumnName = "id"),
 			inverseJoinColumns =  @JoinColumn(name ="pelicula_id", referencedColumnName = "id")
 			)
-	private List<Director> directores;
+	private Set<Director> directores;
 	
 	@OneToMany(mappedBy = "pelicula")
 	private List<Ejemplar> ejemplares;

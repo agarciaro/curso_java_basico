@@ -20,9 +20,24 @@ public class SocioServiceImpl implements SocioService{
 	}
 
 	@Override
-	public Socio findById() {
-		// TODO Auto-generated method stub
-		return null;
+
+	public Socio findById(Integer id) {
+		 return socioRepository.findById(id).get();
+	}
+
+	@Override
+	public Socio insertSocio(Socio socio) {
+		return socioRepository.save(socio);
+	}
+
+	@Override
+	public Socio updateSocio(Socio socio) {
+		return socioRepository.save(socio);
+	}
+
+	@Override
+	public void deleteSocio(Integer id) {
+		socioRepository.deleteById(id);	
 	}
 	
 	

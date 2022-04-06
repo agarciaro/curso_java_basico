@@ -3,6 +3,10 @@ package com.sopra.equipo3.videoclub.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sopra.equipo3.videoclub.model.Pelicula;
@@ -22,9 +27,12 @@ public class PeliculaRestController {
 	@Autowired
 	PeliculaService peliculaService;
 
-	@GetMapping()
-	public List<Pelicula> getAllPeliculas() {
-		return peliculaService.findAll();
+	@GetMapping("/")
+	public Page<Pelicula> getAllPeliculas(
+			@PageableDefault(page = 0, size = 8, direction = Sort.Direction.DESC) Pageable pageable,
+			@RequestParam(name = "filter", required = false) String filter) {
+		return filter != null ? peliculaService.findAllFilter(pageable, filter)
+				: peliculaService.findAllPeliculas(pageable);
 	}
 
 	@GetMapping("/{id}")
@@ -33,8 +41,10 @@ public class PeliculaRestController {
 	}
 
 	@GetMapping("/director/{id}")
-	public List<Pelicula> getAllByDirector(@PathVariable Long id){
-		return peliculaService.findAllByDirector(id);
+	public Page<Pelicula> getAllByDirector(
+			@PageableDefault(page = 0, size = 8, direction = Sort.Direction.DESC) Pageable pageable,
+			@RequestParam(name = "id", required = false) Long id) {
+		return peliculaService.findAllByDirector(pageable, id);
 	}
 
 	@PostMapping()
