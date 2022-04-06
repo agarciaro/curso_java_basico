@@ -1,9 +1,12 @@
 package com.sopra.equipo4.model;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,4 +27,6 @@ public class AlquilerPK implements Serializable {
 	private Integer numEjemplar;
 	@Column(name = "socio_id")
 	private Integer socioId;
+	@Column(name = "fecha_inicio")
+	private LocalDate fechaInicio;
 }

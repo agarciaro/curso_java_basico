@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -26,15 +26,6 @@ public class Socio {
 	private String direccion;
 	private String telefono;
 	private String nombre;
-	@OneToOne(mappedBy = "socio")
-	private AsignacionSocio invitacionSocio;
-	
-	
-//	@OneToMany(mappedBy = "socio")
-//	private Set<Ejemplar> ejemplaresAlquilados;
-	
-//	@OneToMany(mappedBy = "avalanteDe")
-//	private Set<Socio> avaladoPor;
 	
 	@ManyToOne
 	@JoinColumn(name = "avalado_por", referencedColumnName = "id")
