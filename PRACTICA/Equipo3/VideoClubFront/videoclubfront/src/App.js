@@ -11,6 +11,7 @@ import { useAuth } from "./shared/hooks/auth-hook";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
 import './App.css';
+import Landing from "./landing/pages/Landing";
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -20,13 +21,17 @@ const App = () => {
   if (token) {
     routes = (
       <Switch>
-      
+      <Route path="/" exact>
+          <Landing />
+        </Route>
       </Switch>
     );
   } else {
     routes = (
       <Switch>
-        
+          <Route path="/" exact>
+          <Landing />
+        </Route>
       </Switch>
     );
   }

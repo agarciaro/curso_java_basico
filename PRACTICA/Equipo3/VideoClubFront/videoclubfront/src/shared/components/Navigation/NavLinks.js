@@ -9,7 +9,7 @@ const NavLinks = (props) => {
   return (
     <ul className="nav-links">
         <li>
-          <NavLink to={`/markets`}> Markets</NavLink>
+       
         </li>
       {auth.isLoggedIn && (
         <li>

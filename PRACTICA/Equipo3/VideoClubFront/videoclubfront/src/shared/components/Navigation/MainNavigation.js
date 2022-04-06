@@ -35,9 +35,9 @@ const MainNavigation = (props) => {
           <span />
         </button>
         <h1 className="main-navigation__title">
-          <Link to="/">CERES</Link>
+          <Link to="/">BlockBuster</Link>
         </h1>
-        <img className="main-navigation_img" src={`${process.env.REACT_APP_BACKEND_IMG}/uploads/images/logo.png` }alt="logo" />
+   
         <nav className="main-navigation__header-nav">
           <NavLinks />
         </nav>
