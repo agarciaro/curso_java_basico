@@ -1,5 +1,7 @@
 package com.sopra.videoclub.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -15,21 +17,24 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class ActorPelicula {
+public class Alquiler {
+
 	@EmbeddedId
-	private ActorPeliculaKey id;
+	private AlquilerKey id;
 
 	@ManyToOne
-	@MapsId("idActor")
-	@JoinColumn(name = "id_actor")
-	private Actor actor;
+	@MapsId("idEjemplar")
+	@JoinColumn(name = "id_ejemplar")
+	private Ejemplar ejemplar;
 
 	@ManyToOne
-	@MapsId("idPelicula")
-	@JoinColumn(name = "id_pelicula")
-	private Pelicula pelicula;
+	@MapsId("idSocio")
+	@JoinColumn(name = "id_socio")
+	private Socio socio;
 	
-	@Column(columnDefinition = "varchar(60) check (papel in ('PRINCIPAL', 'SECUNDARIO'))")
-	private String papel;
+	
+	@Column(nullable= false)
+    private LocalDate fechaInicio;
+    private LocalDate fechaDevolucion;
 
 }

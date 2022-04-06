@@ -22,7 +22,7 @@ public class Ejemplar {
 	private Integer numEjemplar;
 	private String estado;
 	@ManyToOne
-	@JoinColumn(name="id_pelicula" ,referencedColumnName = "id")
+	@JoinColumn(name="id_pelicula" , nullable = false)
 	private Pelicula pelicula;
 	
 	

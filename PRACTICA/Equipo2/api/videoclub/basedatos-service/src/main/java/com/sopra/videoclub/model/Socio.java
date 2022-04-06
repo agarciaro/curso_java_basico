@@ -1,11 +1,14 @@
 package com.sopra.videoclub.model;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,4 +31,6 @@ public class Socio {
 	@JoinColumn(name = "avalado_por",referencedColumnName = "numSocio")
 	private Socio avaladoPor;
 	
+	@OneToMany(mappedBy = "socio")
+	private Set<Alquiler> ejemplares;
 }

@@ -11,25 +11,26 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-public class ActorPelicula {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class PeliculaActor {
+
+	
 	@EmbeddedId
-	private ActorPeliculaKey id;
-
+	private PeliculaActorPK id;
+	
 	@ManyToOne
-	@MapsId("idActor")
-	@JoinColumn(name = "id_actor")
+	@MapsId("actorId")
+	@JoinColumn(name = "actor_id")
 	private Actor actor;
-
+	
 	@ManyToOne
-	@MapsId("idPelicula")
-	@JoinColumn(name = "id_pelicula")
+	@MapsId("peliculaId")
+	@JoinColumn(name = "pelicula_id")
 	private Pelicula pelicula;
 	
-	@Column(columnDefinition = "varchar(60) check (papel in ('PRINCIPAL', 'SECUNDARIO'))")
-	private String papel;
-
+	@Column(columnDefinition = "VARCHAR(60) CHECK( rol IN ('PRINCIPAL', 'SECUNDARIO'))")
+	private String rol;
 }

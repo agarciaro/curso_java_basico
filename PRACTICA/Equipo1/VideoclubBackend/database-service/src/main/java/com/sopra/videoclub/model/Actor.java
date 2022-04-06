@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,19 +27,12 @@ public class Actor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id_actor;
+	private Integer id;
 	@Column(nullable = false)
-	@NotNull
-	
 	private String nombre;
 	private String nacionalidad;
 	private String sexo;
 	
-	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "actor_pelicula", 
-			joinColumns = @JoinColumn(referencedColumnName = "id_pelicula"),
-			inverseJoinColumns = @JoinColumn(referencedColumnName = "id_actor")
-	)
-	private Set<Pelicula> peliculas = new HashSet<>();
+
 
 }

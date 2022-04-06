@@ -25,10 +25,10 @@ public class Socio {
 	private String dni;
 	@Column(nullable = false)
 	private String nombre;
-	private Integer telefono;
+	private String telefono;
 	private String direccion;
 
 	@OneToOne
-	@JoinColumn(referencedColumnName = "id")
+	@JoinColumn(name="avalado_por", referencedColumnName = "id")
 	private Socio avaladoPor;
 }

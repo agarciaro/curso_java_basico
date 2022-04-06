@@ -1,4 +1,4 @@
-package com.sopra.equipo3.videoclub.model;
+package com.sopra.videoclub.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -14,16 +14,17 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-public class AlquilerPK implements Serializable{
+public class AlquilerKey implements Serializable{
 
 
-	private static final long serialVersionUID = 8887869270479460615L;
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Column(name = "id_socio")
-	private Long idSocio;
+	private Integer idSocio;
 	@Column(name = "id_ejemplar")
-	private Long idEjemplar;
-	@Column(name = "fecha_inicio")
-	private LocalDate fechaInicio;
+	private Integer idEjemplar;
+	
 
 }

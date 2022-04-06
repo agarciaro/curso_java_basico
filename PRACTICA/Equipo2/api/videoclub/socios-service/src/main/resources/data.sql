@@ -1,9 +1,9 @@
-INSERT INTO Videoclub2.director VALUES 
+/* INSERT INTO Videoclub2.director VALUES 
 ('Pepito', 'ESP'),
 ('Juanito', 'ARG'),
 ('Albertito', 'NIG');
 
-/*Solo se acepta como tercer valor (Principa/Secundario)*/
+/*Solo se acepta como tercer valor (Principa/Secundario)
 INSERT INTO Videoclub2.actor VALUES 
 ('actor1', 'ESP','PRINCIPAL','Macho'),
 ('actora2', 'ESP','SECUNDARIO','Hembra');
@@ -23,4 +23,4 @@ INSERT INTO Videoclub2.pelicula_directores (pelicula_id,directores_nombre) VALUE
 (1,'Juanito');
 
 INSERT INTO Videoclub2.ejemplar (num_ejemplar,estado_con,pelicula_id) VALUES 
-(8,'Bien bonito',1);
+(8,'Bien bonito',1); */
