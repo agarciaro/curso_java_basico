@@ -1,7 +1,6 @@
 .movie-list {
     list-style: none;
-    margin: 1.5vw auto;
-    margin-top: 10vw;
+    margin-top: 4vw;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -10,7 +9,7 @@
   }
   .search-box{
     position: relative;
-    margin-top: 9vw;
+    margin-top: 8vw;
     left: 69%;
     width: 20vw;
   }

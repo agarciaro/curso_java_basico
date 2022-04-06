@@ -27,7 +27,7 @@ public class Socio {
 	private String telefono;
 	private String nombre;
 	@OneToOne(mappedBy = "socio")
-	private InvitacionSocio invitacionSocio;
+	private AsignacionSocio invitacionSocio;
 	
 	
 //	@OneToMany(mappedBy = "socio")
@@ -40,4 +40,6 @@ public class Socio {
 	@JoinColumn(name = "avalado_por", referencedColumnName = "id")
 	private Socio avaladoPor;
 	
+	@OneToOne(mappedBy = "socio")
+	private Usuario usuario;
 }

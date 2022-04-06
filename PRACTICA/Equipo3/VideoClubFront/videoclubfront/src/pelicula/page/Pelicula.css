@@ -1,0 +1,38 @@
+
+.container{
+    position: absolute;
+    background-color: white;
+    width: 70vw;
+    top: 9vw;
+    left: 15vw;
+    height: 33vw;
+   
+    border: 0vw hidden #1c6ea4;
+    border-radius: 2vw;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.movie_info img{
+    position: relative;
+    height: 50%;
+    top:5vw;
+    left: 5vw;
+    object-fit: cover;
+}
+
+.movie_info{
+    position: relative;
+    top: 1vw;
+    left: 9vw;
+}
+.movie_info h1{
+    margin-left: 5vw;
+    font-size: 3vw;
+    color: 
+    #1c6ea4;
+}
