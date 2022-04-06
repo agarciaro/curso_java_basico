@@ -28,7 +28,7 @@ public class ActorPelicula {
 	@MapsId("idPelicula")
 	@JoinColumn(name = "id_pelicula")
 	private Pelicula pelicula;
-
+	
 	private String papel;
 
 }

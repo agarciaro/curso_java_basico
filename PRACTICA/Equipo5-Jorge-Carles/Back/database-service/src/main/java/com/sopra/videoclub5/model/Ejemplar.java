@@ -20,7 +20,7 @@ public class Ejemplar {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer numEjemplar;
-	private String estadoCon;
+	private String estado;
 	
 	@ManyToOne
 	@JoinColumn(name = "id_pelicula", nullable = false)
