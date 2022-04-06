@@ -18,6 +18,29 @@ public class SocioServiceImpl implements SocioService{
 	public List<Socio> findAll() {
 		return (List<Socio>) socioRepository.findAll();
 	}
+
+	@Override
+	public Socio findById(Integer id) {
+		 return socioRepository.findById(id).get();
+	}
+
+	@Override
+	public Socio insertSocio(Socio socio) {
+		
+		return socioRepository.save(socio);
+	}
+
+	@Override
+	public Socio updateSocio(Socio socio) {
+		return socioRepository.save(socio);
+	}
+
+	@Override
+	public void deleteSocio(Integer id) {
+		
+		socioRepository.deleteById(id);
+		
+	}
 	
 	
 }

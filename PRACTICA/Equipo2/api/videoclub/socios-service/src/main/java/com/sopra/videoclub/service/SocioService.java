@@ -8,6 +8,9 @@ import com.sopra.videoclub.model.Socio;
 public interface SocioService {
 
 	public List<Socio> findAll();
-	public Socio findById();
+	public Socio findById(Integer id);
+	public Socio insertSocio(Socio socio);
+	public Socio updateSocio(Socio socio);
+	public void deleteSocio(Integer id);
 	
 }
