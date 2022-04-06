@@ -2,6 +2,7 @@ package com.sopra.videoclub5.model;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
@@ -28,11 +29,12 @@ public class Alquiler implements Serializable {
 	@EmbeddedId
 	AlquilerKey id;
 	
-	@Column(nullable = false)
-	private Date fechaInicio;
+	@Column(name= "fecha_inicio",nullable = false)
+	private LocalDate fechaInicio;
+	//,insertable = false, updatable = false, columnDefinition = "DATE DEFAULT current_date()"
 
 	@Column(nullable = true)
-	private Date fechaDevolucion;
+	private LocalDate fechaDevolucion;
 
 	@ManyToOne
 	@MapsId("numSocio")

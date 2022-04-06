@@ -47,7 +47,7 @@ public class Pelicula {
 
 	
 	@OneToMany(mappedBy = "pelicula")
-    Set<PeliculaActor> ActorParticipaEn;
+    Set<PeliculaActor> actores;
 	
 	
 	
