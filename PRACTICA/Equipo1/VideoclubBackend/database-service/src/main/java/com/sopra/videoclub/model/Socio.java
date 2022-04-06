@@ -1,19 +1,12 @@
 package com.sopra.videoclub.model;
 
-import java.util.HashSet;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-
+import javax.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,6 +26,10 @@ public class Socio {
 	private String nombre;
 	private String direccion;
 	private String telefono;
+	
+	@ManyToOne
+	@JoinColumn(name = "avalado_por", referencedColumnName = "id")
+	private Socio avaladoPor;
 	
 	
 	

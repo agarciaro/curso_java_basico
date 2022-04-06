@@ -39,6 +39,10 @@ public class Pelicula {
 	private Set<Director> directores;
 	
 	
+	@OneToMany(mappedBy = "pelicula")
+	private Set<Ejemplar> ejemplares;
+	
+	
 	
 	
 
