@@ -25,7 +25,6 @@ public class PeliculaServiceImp implements PeliculaService {
 		return peliculaRepository.findAll( pageable);
 	}
 
-	
 	@Override
 	public Page<Pelicula> findAllFilter(Pageable pageable, String filter) {
 		

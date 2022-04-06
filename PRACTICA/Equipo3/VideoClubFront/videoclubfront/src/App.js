@@ -10,8 +10,10 @@ import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 import MainNavigation from "./shared/components/Navigation/MainNavigation";
 import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
-import './App.css';
+import "./App.css";
 import Landing from "./landing/pages/Landing";
+import Pelicula from "./pelicula/page/Pelicula";
+
 
 const App = () => {
   const { token, login, logout, userId } = useAuth();
@@ -21,16 +23,22 @@ const App = () => {
   if (token) {
     routes = (
       <Switch>
-      <Route path="/" exact>
+        <Route path="/" exact>
           <Landing />
+        </Route>
+        <Route path="/movie/:movieId" exact>
+          <Pelicula />
         </Route>
       </Switch>
     );
   } else {
     routes = (
       <Switch>
-          <Route path="/" exact>
+        <Route path="/" exact>
           <Landing />
+        </Route>
+        <Route path="/movie/:movieId" exact>
+          <Pelicula />
         </Route>
       </Switch>
     );
