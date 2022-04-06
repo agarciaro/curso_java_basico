@@ -1,13 +1,20 @@
 package com.sopra.equipo3.videoclub.service;
 
 import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.sopra.equipo3.videoclub.model.Pelicula;
 
 public interface PeliculaService {
+		
+	public Page<Pelicula> findAllPeliculas(Pageable pageable);
 	
-	public List<Pelicula> findAll();
+	public Page<Pelicula> findAllFilter(Pageable pageable, String filter);
 	
-	public List<Pelicula> findAllByDirector(Long id);
+	public Page<Pelicula> findAllByDirector(Pageable oPageable, Long idDirector);
+	
 	
 	public Pelicula findById(Long id);
 	 
