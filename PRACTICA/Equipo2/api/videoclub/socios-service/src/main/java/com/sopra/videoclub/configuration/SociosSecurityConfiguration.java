@@ -1,7 +1,6 @@
-package com.sopra.equipoa.videoclub.configuration;
+package com.sopra.videoclub.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
@@ -19,23 +18,22 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.sopra.equipoa.videoclub.filter.JwtAuthenticationEntryPoint;
-import com.sopra.equipoa.videoclub.filter.JwtTokenFilter;
-import com.sopra.equipoa.videoclub.model.JwtToken;
-import com.sopra.equipoa.videoclub.service.UsuarioDetailsService;
+import com.sopra.videoclub.filter.JwtAuthenticationEntryPoint;
+import com.sopra.videoclub.filter.JwtTokenFilter;
+import com.sopra.videoclub.model.JwtToken;
+import com.sopra.videoclub.service.UsuarioDetailsService;
 
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
-	securedEnabled = true,
-	jsr250Enabled = true,
-	prePostEnabled = true
+		securedEnabled = true,
+		jsr250Enabled = true,
+		prePostEnabled = true
 )
-@ConditionalOnProperty(name = "com.sopra.security.enabled", havingValue = "true", matchIfMissing = false)
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-	
+public class SociosSecurityConfiguration extends WebSecurityConfigurerAdapter{
+
 	@Autowired
-	private UsuarioDetailsService usuariDetalsService;
+	UsuarioDetailsService usuarioDetailsService;
 	
 	@Autowired
 	JwtTokenFilter jwtTokenFilter;
@@ -51,9 +49,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(usuariDetalsService);
+		auth.userDetailsService(usuarioDetailsService);
 	}
-
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		//Habilitar CORS y deshabilitar CSRF
@@ -73,14 +71,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		//Establecer permisos a los endpoints
 		http.authorizeRequests()
-			.antMatchers(HttpMethod.GET, "/api/login").permitAll()
-			.antMatchers(HttpMethod.POST, "/api/registro").permitAll();
-//			.antMatchers(HttpMethod.GET, "/api/auth/password/*/encode").permitAll()
-//			.anyRequest().authenticated();
+			.antMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+			.antMatchers(HttpMethod.GET, "/api/auth/password/*/encode").permitAll()
+			.anyRequest().authenticated();
 		
 		//Añadir el filtro para procesar el token JWT
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
-		
 	}
 	
 	@Bean
