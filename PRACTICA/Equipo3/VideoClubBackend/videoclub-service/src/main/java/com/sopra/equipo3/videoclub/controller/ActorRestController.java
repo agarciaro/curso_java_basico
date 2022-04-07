@@ -16,37 +16,37 @@ import com.sopra.equipo3.videoclub.model.Actor;
 import com.sopra.equipo3.videoclub.service.ActorService;
 
 @RestController
-@RequestMapping("/api/actor")
+@RequestMapping("/api")
 public class ActorRestController {
 	@Autowired
 	ActorService actorService;
 
-	@GetMapping()
+	@GetMapping("/actor")
 	public List<Actor> getAllDirectors() {
 		return actorService.findAll();
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/actor/{id}")
 	public Actor getDirector(@PathVariable Long id) {
 		return actorService.findById(id);
 	}
 
-	@PostMapping()
+	@PostMapping("/actor")
 	public Actor insertActor(@RequestBody Actor actor) {
 		return actorService.insert(actor);
 	}
 
-	@PutMapping()
+	@PutMapping("/actor")
 	public Actor updateDirector(@RequestBody Actor actor) {
 		return actorService.update(actor);
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/actor/{id}")
 	public void deleteActor(@PathVariable Long id) {
 		actorService.delete(id);
 	}
 	
-	@GetMapping("/pelicula/{id}")
+	@GetMapping("/pelicula/{id}/actor")
 	public List<Actor> getAllActoresByPelicula(@PathVariable Long id) {
 		return actorService.findActoresByPelicula(id);
 	}

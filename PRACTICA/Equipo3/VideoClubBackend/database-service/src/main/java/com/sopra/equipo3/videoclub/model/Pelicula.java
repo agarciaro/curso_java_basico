@@ -46,4 +46,8 @@ public class Pelicula {
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "pelicula_director", joinColumns = @JoinColumn(name = "id_pelicula", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "id_director", referencedColumnName = "id"))
 	private Set<Director> directores;
+	
+	@OneToMany(mappedBy = "pelicula")
+	@JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+	private Set<ActorPelicula> actorPelicula;
 }

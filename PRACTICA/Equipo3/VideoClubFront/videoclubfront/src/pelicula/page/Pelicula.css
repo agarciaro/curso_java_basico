@@ -4,7 +4,7 @@
   width: 70vw;
   top: 9vw;
   left: 15vw;
-  height: 33vw;
+  height: 35vw;
 
   border: 0vw hidden #1c6ea4;
   border-radius: 2vw;
@@ -53,13 +53,33 @@
 
 .movie_actions{
     position:absolute;
-    bottom: 3vw;
+    bottom: 2vw;
     right: 3vw;
 }
-
 
 .movie_actions button {
    width: 10vw;
    height: 3vw;
    font-size: 1.5vw;
+}
+
+.movie_actor_director {
+    margin: 0;
+   font-size: 0.9vw;
+   position: absolute;
+   top: 15vw;
+   right:13vw;
+   
+}
+.movie_actor_director h2{
+    margin-top: 0;
+    font-size: 1.4vw;
+    color: #247eb3;
+}
+.movie_actor_director ul li{
+    margin: -0.4vw;
+    margin-left: -1.9vw;
+    list-style: none;
+    font-size: 0.9vw;
+    color: #1b5475;
 }
