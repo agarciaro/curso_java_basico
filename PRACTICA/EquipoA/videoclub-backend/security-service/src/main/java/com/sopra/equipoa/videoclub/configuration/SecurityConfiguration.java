@@ -74,9 +74,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		//Establecer permisos a los endpoints
 		http.authorizeRequests()
 			.antMatchers(HttpMethod.GET, "/api/login").permitAll()
-			.antMatchers(HttpMethod.POST, "/api/registro").permitAll()
+			.antMatchers(HttpMethod.POST, "/api/registro").permitAll();
 //			.antMatchers(HttpMethod.GET, "/api/auth/password/*/encode").permitAll()
-			.anyRequest().authenticated();
+//			.anyRequest().authenticated();
 		
 		//Añadir el filtro para procesar el token JWT
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
