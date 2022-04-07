@@ -56,12 +56,12 @@ public class AuthenticationRestController {
 
 		return new JwtToken(token, userDetails.getUsername());
 	}
-//	
-//	@PostMapping("/registro")
-//	public Usuario registro(@RequestBody UsuarioCredenciales credencials) {
-//		
-//		return usuarioService.insert(new Usuario(credencials.getUsername(), credencials.getPassword(),null,null));
-//	}
+	
+	@PostMapping("/registro")
+	public Usuario registro(@RequestBody UsuarioCredenciales credencials) {
+		log.info("{}", credencials);
+		return usuarioService.insert(new Usuario(credencials.getUsername(), credencials.getPassword(),null,null));
+	}
 
 	@GetMapping("/password/{password}/encode")
 	public String encodePassword(@PathVariable String password) {
