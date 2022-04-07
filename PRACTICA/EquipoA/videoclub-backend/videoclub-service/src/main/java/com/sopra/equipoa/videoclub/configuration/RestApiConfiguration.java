@@ -7,11 +7,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
 import com.sopra.equipoa.videoclub.model.Pagina;
+import com.sopra.equipoa.videoclub.model.Paginable;
 
 @Configuration
 public class RestApiConfiguration {
@@ -33,4 +35,5 @@ public class RestApiConfiguration {
     public Pagina page() {
     	return new Pagina();
     }
+    
 }

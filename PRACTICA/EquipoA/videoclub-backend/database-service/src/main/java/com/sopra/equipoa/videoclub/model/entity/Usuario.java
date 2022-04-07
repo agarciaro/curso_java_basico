@@ -14,6 +14,7 @@ import javax.persistence.Index;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -36,8 +37,13 @@ public class Usuario {
 	private String password;
 
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(referencedColumnName = "id"))
+	@JoinTable(name = "usuario_rol", 
+		joinColumns = @JoinColumn(referencedColumnName = "id"), 
+		inverseJoinColumns = @JoinColumn(referencedColumnName = "id"))
 	private Set<Rol> roles = new HashSet<>();
+	
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private SocioUsuario socioUsuario;
 	
 	
 	public Usuario(String username, String password) {
