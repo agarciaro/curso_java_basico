@@ -1,4 +1,4 @@
-.actor_container {
+.director_container {
     position: absolute;
     background-color: white;
     width: 50vw;
@@ -16,49 +16,53 @@
     display: flex;
   }
   
-.actor_data{
+.director_data{
     
     position: relative;
     top: 1vw;
     left:9vw;
 }
-.actor_data h1 {
+.director_data h1 {
     font-size: 3vw;
     color: #247eb3;
 }
 
-.actor_data h2 {
+.director_data h2 {
     font-size: 1.4vw;
     color: #247eb3;
 }
-.actor_data h3 {
+.director_data h3 {
     font-size: 0.9vw;
     color: #1b5475;
 }
-.actor_img{
+.director_img{
     position: relative;
     top: 9vw;
     left: 5vw;
 }
-.actor_container img{
+.director_container img{
     height: 10vw;
     width: 10vw;
     object-fit: cover;
     border-radius: 3vw;
 }
 
-.actor_container .alice-carousel{
+.director_container .carousel{
     position: absolute;
-    width:50vw;
+    width:33vw;
     bottom: 0vw;
-    left: 33%;
+    left: 18%;
    
 
 }
-.actor_container .alice-carousel img{
+.director_container .alice-carousel img{
     width:8vw;
     
- 
-   
+} 
 
+.director_container .carousel h2{
+    color: #247eb3;
+    position: absolute;
+    left:10.2vw;
+    bottom: 18vw;
 }

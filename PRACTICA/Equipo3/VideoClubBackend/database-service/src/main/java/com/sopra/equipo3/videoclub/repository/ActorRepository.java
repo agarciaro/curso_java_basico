@@ -13,10 +13,12 @@ import com.sopra.equipo3.videoclub.model.Actor;
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Long> {
 
-	@Query("SELECT a.id, a.nacionalidad, a.nombre, a.sexo "
+	@Query("SELECT a "
 			+ "FROM Actor a "
 			+ "LEFT JOIN ActorPelicula  actPel "
 			+ "ON a.id = actPel.id.idActor "
 			+ "where  actPel.id.idPelicula  = :id ")
 	List<Actor> findByPeliculaId(@Param("id") Long id);
+
+	
 }
