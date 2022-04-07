@@ -2,7 +2,10 @@ package com.sopra.equipo4.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,6 +28,11 @@ public class PeliculaRestController {
 	@GetMapping("/peliculas")
 	public List<Pelicula> getAllPeliculas() {
 		return peliculaService.getAllPeliculas();
+	}
+	
+	@GetMapping("/peliculas/pagination")
+	public List<Pelicula> getPreviewPeliculas(Pageable pageable) {
+		return peliculaService.paginatedOrderByName(pageable);
 	}
 	
 	@GetMapping("/peliculas/{id}")
