@@ -16,6 +16,11 @@ import lombok.extern.slf4j.Slf4j;
 public class UsuarioDetails extends Usuario implements UserDetails {
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public UsuarioDetails(){};
 	
 	public UsuarioDetails(Usuario usuario) {
@@ -35,32 +40,33 @@ public class UsuarioDetails extends Usuario implements UserDetails {
 
 	@Override
 	public String getPassword() {
-		return null;
+		return super.getPassword();
 	}
 
 	@Override
 	public String getUsername() {
-		return null;
+		
+		return super.getUsername();
 	}
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean isEnabled() {
-		return false;
+		return true;
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.sopra.equipoa.videoclub.controller;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sopra.equipoa.videoclub.model.JwtToken;
+import com.sopra.equipoa.videoclub.UsuarioService;
 import com.sopra.equipoa.videoclub.model.DatosRegistroDto;
 import com.sopra.equipoa.videoclub.model.entity.Usuario;
 import com.sopra.equipoa.videoclub.service.JwtTokenUtil;
@@ -35,6 +37,9 @@ public class UsuarioController {
 	@Autowired
 	UserDetailsService userDetailsService;
 	
+	@Autowired
+	UsuarioService usuarioService;
+	
 //	@Autowired
 //	PasswordEncoder encoder;
 //	
@@ -48,11 +53,11 @@ public class UsuarioController {
 		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 		String token= jwtTokenUtil.generateToken(userDetails);		
 		
-		return new JwtToken(token, username, new ArrayList<>());
+		return new JwtToken(token, username, ((Usuario) userDetails).getRoles().stream().map((rol -> rol.getNombre())).collect(Collectors.toList()));
 	}
 	
 	@PostMapping("/registro")
-	public Usuario registro(@RequestBody @Valid DatosRegistroDto datosRegistro) {
-		return new Usuario("usuario1", "password");
+	public String registro(@RequestBody @Valid DatosRegistroDto datosRegistro) {
+		return usuarioService.registro(datosRegistro).getUsername();
 	}
 }

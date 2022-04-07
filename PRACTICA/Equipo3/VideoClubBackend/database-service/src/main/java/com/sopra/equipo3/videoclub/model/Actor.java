@@ -23,6 +23,7 @@ public class Actor {
 	private String nombre;
 	private String nacionalidad;
 	private String sexo;
+	private String urlImage;
 	
 
 }

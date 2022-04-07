@@ -71,10 +71,10 @@ public class SociosSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		
 		//Establecer permisos a los endpoints
 		http.authorizeRequests()
-			.antMatchers(HttpMethod.POST, "/api/auth/login").permitAll()
+			.antMatchers(HttpMethod.POST, "/api/auth/*").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/auth/password/*/encode").permitAll()
 			.anyRequest().authenticated();
-		
+	
 		//Añadir el filtro para procesar el token JWT
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 	}

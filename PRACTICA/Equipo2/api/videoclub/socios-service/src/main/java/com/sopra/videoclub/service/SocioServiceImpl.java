@@ -39,6 +39,12 @@ public class SocioServiceImpl implements SocioService{
 	public void deleteSocio(Integer id) {
 		socioRepository.deleteById(id);	
 	}
+
+	@Override
+	public Integer getSocioCodigo(String codigo) {
+		
+		return socioRepository.getCodigoSocio(codigo);
+	}
 	
 	
 }

@@ -15,7 +15,18 @@ INSERT INTO director (nombre, nacionalidad, url_imagen) VALUES
 ('Nicolas Winding Refn3', 'Denmark', 'https://www.themoviedb.org/t/p/w1280/sHH8M1iAVO5qtuyqNOiD6AKu8Id.jpg');
 
 
---INSERT INTO videoclubA.pelicula_director VALUES 
---('1001', '1001'),
---('1002', '1002'),
---('1003', '1003');
+INSERT INTO socio (id, dni, nombre, telefono, direccion) VALUES
+(1001, '1111A', 'socio1', '6543214', 'dirección1'),
+(1002, '2222A', 'socio2', '1234231', 'dirección2'),
+(1003, '3333A', 'socio3', '1234321', 'dirección3');
+
+INSERT INTO invitacion VALUES
+(1001, 'CODIGO1'),
+(1002, 'CODIGO2'), 
+(1003, 'CODIGO3');
+
+INSERT INTO rol (nombre, descripcion) VALUES
+('SOCIO', 'Rol de socio'),
+('ADMIN', 'Rol de admin');
+
+
