@@ -1,4 +1,4 @@
-package com.sopra.model;
+package com.sopra.videoclub.model;
 
 import java.io.Serializable;
 

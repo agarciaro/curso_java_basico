@@ -1,4 +1,4 @@
-package com.sopra.equipoa.videoclub.filter;
+package com.sopra.videoclub.filter;
 
 import java.io.IOException;
 
@@ -16,64 +16,53 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.sopra.equipoa.videoclub.model.JwtToken;
-import com.sopra.equipoa.videoclub.model.Pagina;
-import com.sopra.equipoa.videoclub.service.JwtTokenUtil;
-import com.sopra.equipoa.videoclub.service.UsuarioDetailsService;
+import com.sopra.videoclub.model.JwtToken;
+import com.sopra.videoclub.service.JwtTokenUtil;
+import com.sopra.videoclub.service.UsuarioDetailsService;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Component
 @Slf4j
-public class JwtTokenFilter extends OncePerRequestFilter{
-	
+public class JwtTokenFilter extends OncePerRequestFilter {
+
 	@Autowired
 	JwtTokenUtil jwtTokenUtil;
-	
+
 	@Autowired
-	UsuarioDetailsService usuariDetalsService;
-	
+	UsuarioDetailsService usuarioDetailsService;
+
 	@Autowired
 	JwtToken jwtToken;
-	
+
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {	
-		
-		final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);  //mira header
-		if(authHeader == null || !authHeader.startsWith("Bearer ")) {    // si no lleva token
+			throws ServletException, IOException {
+
+		final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION); // mira header
+		if (authHeader == null || !authHeader.startsWith("Bearer ")) { // si no lleva token
 			log.warn("No se ha podido extraer el token");
 			filterChain.doFilter(request, response);
 			return;
 		}
-		
-		final String token = authHeader.split(" ")[1].trim();   //separa token d e la peticion
-		
-		String username = jwtTokenUtil.getUsernameFromToken(token);    //crea variable username con el user sacado del token
-		 
-		UserDetails userDetails = usuariDetalsService.loadUserByUsername(username); //crea userdetails con el nombre del usuario 
-		
+		final String token = authHeader.split(" ")[1].trim();
+
+		String username = jwtTokenUtil.getUsuarioFromToken(token);
+		UserDetails userDetails = usuarioDetailsService.loadUserByUsername(username);
+
 		log.info(" --- USERDETAILS:{}", userDetails);
-		
-		if(jwtTokenUtil.validateToken(token, userDetails)) {
-			UsernamePasswordAuthenticationToken authenticationToken = 
-					new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());  //crea autenticacion con el token
-			
+
+		if (jwtTokenUtil.validateToken(token, userDetails)) {
+			UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
+					userDetails, null, userDetails.getAuthorities()); // crea autenticacion con el token
+
 			authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-			
+
 			SecurityContextHolder.getContext().setAuthentication(authenticationToken);
 		}
-		
+
 		jwtToken.setToken(token);
-		jwtToken.setUsername(username);
-//		jwtToken.setRoles(userDetails.getAuthorities());
-		
-		
-		
+
 		filterChain.doFilter(request, response);
-		
 	}
-	
-	
-	
 }
