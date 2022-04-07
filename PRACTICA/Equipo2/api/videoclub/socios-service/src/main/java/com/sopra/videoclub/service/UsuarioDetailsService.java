@@ -27,5 +27,6 @@ public class UsuarioDetailsService implements UserDetailsService{
 		return usuarioDetails;
 	}
 	
+	
 
 }

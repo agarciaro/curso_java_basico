@@ -25,4 +25,4 @@ INSERT INTO Videoclub2.ejemplar (num_ejemplar,estado,pelicula_id) VALUES
 (8,'Bien bonito',1);
 
 INSERT INTO Videoclub2.usuario (username,password) VALUES
-('usu1','$2a$10$BsjUohGVfebeOej4NJuuY.mhaObBszlvzUfzVYHLC6qOnbjLIqPlK')
+('usu1','$2a$10$kFXhaOZSbGhZ1j4lTQ0g7utliHCm35AtokJPiZmMZlz0W4dqHRZmC')
