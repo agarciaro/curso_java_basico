@@ -16,4 +16,5 @@ public interface ActorService {
 
 	public void delete(Long id);
 
+	public List<Actor> findActoresByPelicula(Long id);
 }

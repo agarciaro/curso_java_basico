@@ -10,7 +10,7 @@ import Input from "@mui/material/Input";
 const Landing = () =>{
     const [loadedMovies, setLoadedMovies] = useState();
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
-    const [ page , setPage] = useState(0);
+    const [ page , setPage] = useState(1);
     const [search, setSearch] = useState("");
     const [totalPages, setTotalPages] = useState(0);
     const [ size , setSize] = useState(8)
@@ -20,7 +20,7 @@ const Landing = () =>{
           
           try {
             const responseData = await sendRequest(
-              `${process.env.REACT_APP_BACKEND_URL}/peliculas/?page=${page}&size=${size}&filter=${search}`
+              `${process.env.REACT_APP_BACKEND_URL}/peliculas/?page=${page-1}&size=${size}&filter=${search}`
             );
             setLoadedMovies(responseData.content);
             setTotalPages(responseData.totalPages);
@@ -46,7 +46,7 @@ const Landing = () =>{
         }
       };
       const selectPage = (event, value) => {
-        setPage(value-1);
+        setPage(value);
       };
   return (
     <React.Fragment>
@@ -78,7 +78,7 @@ const Landing = () =>{
          <Pagination
            count={totalPages}
            page={page}
-           color="success"
+           color="info"
            onChange={selectPage}
            size="large"
          />

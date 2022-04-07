@@ -64,6 +64,8 @@ public class JwtTokenFilter extends OncePerRequestFilter{
 		}
 		
 		jwtToken.setToken(token);
+		jwtToken.setUsername(username);
+//		jwtToken.setRoles(userDetails.getAuthorities());
 		
 		filterChain.doFilter(request, response);
 		

@@ -1,0 +1,24 @@
+.actor_container {
+    position: absolute;
+    background-color: white;
+    width: 50vw;
+    height: 33vw;
+    top: 9vw;
+    left: 25vw;
+
+    border: 0vw hidden #1c6ea4;
+    border-radius: 2vw;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+.actor_data{
+    margin: 1vw;
+    position: relative;
+
+
+}

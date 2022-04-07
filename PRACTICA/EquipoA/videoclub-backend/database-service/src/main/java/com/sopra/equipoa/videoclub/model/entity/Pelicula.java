@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -32,7 +33,12 @@ public class Pelicula {
 	private String nacionalidad;
 	private String productora;
 	private LocalDate fecha;
-	private String url;
+	@Lob
+	private String sinopsis;
+	private String urlVideo;
+	private String urlPoster;
+	private String urlFondo;
+	
 
 	@Exclude
 	@OneToMany(mappedBy = "pelicula")

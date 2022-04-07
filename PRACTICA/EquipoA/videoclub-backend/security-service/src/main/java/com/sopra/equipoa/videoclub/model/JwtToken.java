@@ -16,6 +16,8 @@ public class JwtToken implements Serializable{
 	
 	private String token;
 	
+	private String username;
+	
 	private List<String> roles;
 	
 }

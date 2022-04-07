@@ -17,6 +17,8 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtTokenUtil {
 	
+	public static final Integer TOKEN_EXPIRATION = 30 * 24 * 60 * 60 * 1000;
+	
 	@Value("${jwt.secret:mysecret}")
 	private String secret;
 	
@@ -48,7 +50,7 @@ public class JwtTokenUtil {
 				.setClaims(claims)
 				.setSubject(userDetails.getUsername())
 				.setIssuedAt(new Date())
-				.setExpiration(new Date(System.currentTimeMillis() + 30 * 60 * 1000))
+				.setExpiration(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION))
 				.signWith(SignatureAlgorithm.HS512, secret)
 				.compact();
 	}

@@ -32,7 +32,7 @@ public class Pelicula {
 	private String nacionalidad;
 	private String productora;
 	private LocalDate fecha;
-	private String url_imagen;
+	private String urlImagen;
 	private String url;
 	private String sinopsis;
 

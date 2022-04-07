@@ -6,8 +6,8 @@ INSERT INTO videoclub3.director VALUES
 ('1005','Peter Jackson','Nueva Zelanda');
 
 INSERT INTO videoclub3.pelicula VALUES
-('1001','2000-01-01', 'Espana','Almodovar productions','Manuela recibe un duro golpe y decide huir del presente refugiándose en el pasado. Viaja hasta Barcelona, de donde salió embarazada hace dieciocho años. Va en busca de Esteban, el padre de su hijo, quien nunca supo que Manuela había sido madre.','Todo sobre mi madre',null,null),
-('1002','2006-06-27', 'Corea','Showbox Entertainment','Cuenta la historia de una joven mujer, Melanie, que es capturada después de que la raza humana ha sido sustituida por extraterrestres parásitos, llamados "Souls o Almas". Después de que Melanie es impregnada con un alma','The Host',null,null),
+('1001','2000-01-01', 'Espana','Almodovar productions','Manuela recibe un duro golpe y decide huir del presente refugiándose en el pasado. Viaja hasta Barcelona, de donde salió embarazada hace dieciocho años. Va en busca de Esteban, el padre de su hijo, quien nunca supo que Manuela había sido madre.','Todo sobre mi madre',null,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRQ-JpM4u-s1uu1_fE6Worg8SAl1YzkTUNv-i2u4GHxTE_9nKDn'),
+('1002','2006-06-27', 'Corea','Showbox Entertainment','Cuenta la historia de una joven mujer, Melanie, que es capturada después de que la raza humana ha sido sustituida por extraterrestres parásitos, llamados "Souls o Almas". Después de que Melanie es impregnada con un alma','The Host',null,'https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/69/55/64/20056256.jpg'),
 ('1003','1982-01-21', 'Estados Unidos','Universal Pictures','E.T. narra la amistad entre Elliott, un chico solitario de diez años, y un visitante de otro planeta que pierde su nave espacial. Elliott lleva a E.T. a su casa, donde vive con su madre, su hermana y el hermano mayor','E.T',null,null),
 ('1004','2019-10-25', 'Corea','Barunson E&A','Tanto Gi Taek como su familia están sin trabajo. Cuando su hijo mayor, Gi Woo, empieza a recibir clases particulares en la adinerada casa de Park, las dos familias, que tienen mucho en común pese a pertenecer a dos mundos totalmente distintos','Parásitos',null,null),
 ('1005','2001-06-30', 'Nueva Zelanda','Howard Shore, Suzana Peric','En la Segunda Edad de la Tierra Media, los señores de los Elfos, los Enanos y los Hombres reciben anillos de poder. Sin saberlo, el Señor Oscuro Sauron forja el anillo Único en el Monte del Destino.','El Señor de los Anillos: la Comunidad del Anillo',null,null),
@@ -25,3 +25,15 @@ INSERT INTO videoclub3.pelicula_director VALUES
 ('1002', '1002'),
 ('1003', '1003'),
 ('1004','1002');
+
+
+INSERT INTO videoclub3.actor VALUES
+('1001','España','Cecilia Roth','Femenino'),
+('1002','España','Candela Peña','Femenino'),
+('1003','España','Fernando Fernán Gómez','Masculino');
+
+
+INSERT INTO videoclub3.actor_pelicula VALUES
+('1001', '1001', 'PRINCIPAL'),
+('1002', '1001', 'SECUNDARIO'),
+('1003', '1001', 'SECUNDARIO');
