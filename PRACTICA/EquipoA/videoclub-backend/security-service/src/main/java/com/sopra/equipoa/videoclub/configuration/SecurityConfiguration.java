@@ -21,6 +21,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import com.sopra.equipoa.videoclub.filter.JwtAuthenticationEntryPoint;
 import com.sopra.equipoa.videoclub.filter.JwtTokenFilter;
+import com.sopra.equipoa.videoclub.filter.PaginationParseFilter;
 import com.sopra.equipoa.videoclub.model.JwtToken;
 import com.sopra.equipoa.videoclub.service.UsuarioDetailsService;
 
@@ -39,6 +40,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	JwtTokenFilter jwtTokenFilter;
+	
+	@Autowired
+	PaginationParseFilter paginationParseFilter;
 	
 	@Autowired
 	JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
@@ -80,6 +84,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		
 		//Añadir el filtro para procesar el token JWT
 		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+		
+		http.addFilterBefore(paginationParseFilter, JwtTokenFilter.class);
 		
 	}
 	
