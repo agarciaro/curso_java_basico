@@ -1,0 +1,68 @@
+.director_container {
+    position: absolute;
+    background-color: white;
+    width: 50vw;
+    height: 40vw;
+    top: 6vw;
+    left: 25vw;
+
+    border: 0vw hidden #1c6ea4;
+    border-radius: 2vw;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+  }
+  
+.director_data{
+    
+    position: relative;
+    top: 1vw;
+    left:9vw;
+}
+.director_data h1 {
+    font-size: 3vw;
+    color: #247eb3;
+}
+
+.director_data h2 {
+    font-size: 1.4vw;
+    color: #247eb3;
+}
+.director_data h3 {
+    font-size: 0.9vw;
+    color: #1b5475;
+}
+.director_img{
+    position: relative;
+    top: 9vw;
+    left: 5vw;
+}
+.director_container img{
+    height: 10vw;
+    width: 10vw;
+    object-fit: cover;
+    border-radius: 3vw;
+}
+
+.director_container .carousel{
+    position: absolute;
+    width:33vw;
+    bottom: 0vw;
+    left: 18%;
+   
+
+}
+.director_container .alice-carousel img{
+    width:8vw;
+    
+} 
+
+.director_container .carousel h2{
+    color: #247eb3;
+    position: absolute;
+    left:10.2vw;
+    bottom: 18vw;
+}

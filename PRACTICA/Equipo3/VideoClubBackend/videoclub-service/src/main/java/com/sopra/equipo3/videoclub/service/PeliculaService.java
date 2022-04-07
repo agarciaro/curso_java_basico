@@ -5,7 +5,10 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.sopra.equipo3.videoclub.model.ActorPelicula;
+import com.sopra.equipo3.videoclub.model.ActorPeliculaPK;
 import com.sopra.equipo3.videoclub.model.Pelicula;
+import com.sopra.equipo3.videoclub.model.PeliculaDatos;
 
 public interface PeliculaService {
 		
@@ -15,8 +18,9 @@ public interface PeliculaService {
 	
 	public Page<Pelicula> findAllByDirector(Pageable oPageable, Long idDirector);
 	
+	public Page<Pelicula> findByActor(Pageable oPageable, Long idActor);
 	
-	public Pelicula findById(Long id);
+	public PeliculaDatos findById(Long id);
 	 
 	public Pelicula insert(Pelicula pelicula);
 

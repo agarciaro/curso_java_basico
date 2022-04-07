@@ -1,9 +1,9 @@
 INSERT INTO videoclub3.director VALUES
-('1001','España','Pedro Almodovar'),
-('1002','Corea','Bong Joon-ho'),
-('1003','Estados Unidos','Steven Spielberg'),
-('1004','Estados Unidos','Quentin Tarantino'),
-('1005','Nueva Zelanda','Peter Jackson');
+('1001','España','Pedro Almodovar','https://m.media-amazon.com/images/M/MV5BMGM2NTk2MDEtN2Y4Ni00YzNjLWE1NDQtMWM4MjJlZWI1NmU2XkEyXkFqcGdeQXVyMDc2NTEzMw@@._V1_.jpg'),
+('1002','Corea','Bong Joon-ho','https://upload.wikimedia.org/wikipedia/commons/0/07/Bong_Joon-ho_Deauville_2013.jpg'),
+('1003','Estados Unidos','Steven Spielberg','https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Steven_Spielberg_by_Gage_Skidmore.jpg/800px-Steven_Spielberg_by_Gage_Skidmore.jpg'),
+('1004','Estados Unidos','Quentin Tarantino','https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Quentin_Tarantino_by_Gage_Skidmore.jpg/800px-Quentin_Tarantino_by_Gage_Skidmore.jpg'),
+('1005','Nueva Zelanda','Peter Jackson','https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Peter_Jackson_SDCC_2014.jpg/800px-Peter_Jackson_SDCC_2014.jpg');
 
 INSERT INTO videoclub3.pelicula VALUES
 ('1001','2000-01-01', 'Espana','Almodovar productions','Manuela recibe un duro golpe y decide huir del presente refugiándose en el pasado. Viaja hasta Barcelona, de donde salió embarazada hace dieciocho años. Va en busca de Esteban, el padre de su hijo, quien nunca supo que Manuela había sido madre.','Todo sobre mi madre',null,'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRQ-JpM4u-s1uu1_fE6Worg8SAl1YzkTUNv-i2u4GHxTE_9nKDn'),
@@ -24,16 +24,29 @@ INSERT INTO videoclub3.pelicula_director VALUES
 ('1001', '1001'),
 ('1002', '1002'),
 ('1003', '1003'),
-('1004','1002');
-
+('1004','1002'),
+('1005', '1005'),
+('1006', '1005'),
+('1007','1004'),
+('1008','1004'),
+('1009','1004'),
+('1010','1001'),
+('1011','1001');
 
 INSERT INTO videoclub3.actor VALUES
-('1001','España','Cecilia Roth','Femenino'),
-('1002','España','Candela Peña','Femenino'),
-('1003','España','Fernando Fernán Gómez','Masculino');
-
+('1001','España','Cecilia Roth','Femenino','https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Cecilia_Roth_2014_%28cropped%29.jpg/800px-Cecilia_Roth_2014_%28cropped%29.jpg'),
+('1002','España','Candela Peña','Femenino','https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Festival_de_M%C3%A1laga_2020_-_Candela_Pe%C3%B1a.jpg/800px-Festival_de_M%C3%A1laga_2020_-_Candela_Pe%C3%B1a.jpg'),
+('1003','España','Fernando Fernán Gómez','Masculino','https://upload.wikimedia.org/wikipedia/commons/4/4b/Fernando_Fern%C3%A1n_G%C3%B3mez.jpg'),
+('1004','Estados Unidos','Uma Thurman','Femenino','https://upload.wikimedia.org/wikipedia/commons/4/42/Uma_Thurman_Cannes_2017_%28cropped%29.jpg'),
+('1005','España','Penelope Cruz','Femenino','https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Premios_Goya_2020_-_Pen%C3%A9lope_Cruz_%28cropped%29.jpg/800px-Premios_Goya_2020_-_Pen%C3%A9lope_Cruz_%28cropped%29.jpg');
 
 INSERT INTO videoclub3.actor_pelicula VALUES
 ('1001', '1001', 'PRINCIPAL'),
 ('1002', '1001', 'SECUNDARIO'),
-('1003', '1001', 'SECUNDARIO');
+('1003', '1001', 'SECUNDARIO'),
+('1004', '1008', 'PRINCIPAL'),
+('1004', '1007', 'PRINCIPAL'),
+('1005', '1001', 'PRINCIPAL'),
+('1005', '1010', 'PRINCIPAL');
+
+

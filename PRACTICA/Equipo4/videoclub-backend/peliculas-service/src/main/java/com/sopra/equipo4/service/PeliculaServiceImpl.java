@@ -3,6 +3,9 @@ package com.sopra.equipo4.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.sopra.equipo4.model.Pelicula;
@@ -39,6 +42,11 @@ public class PeliculaServiceImpl implements PeliculaService {
 		peliculaRepository.deleteById(id);
 		
 		return peliculaRepository.findById(id).isEmpty() ? true : false;
+	}
+
+	@Override
+	public List<Pelicula> paginatedOrderByName(Pageable pageable) {
+		return peliculaRepository.paginatedOrderByName(pageable);
 	}
 
 }

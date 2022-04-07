@@ -41,7 +41,7 @@ public class ActorServiceImp implements ActorService{
 
 	@Override
 	public List<Actor> findActoresByPelicula(Long id) {
-		return findActoresByPelicula(id);
+		return actorRepository.findByPeliculaId(id);
 	}
 
 }

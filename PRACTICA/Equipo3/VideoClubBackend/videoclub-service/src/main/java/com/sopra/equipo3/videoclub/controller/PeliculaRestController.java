@@ -15,17 +15,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.sopra.equipo3.videoclub.model.ActorPelicula;
 import com.sopra.equipo3.videoclub.model.Pelicula;
+import com.sopra.equipo3.videoclub.model.PeliculaDatos;
 import com.sopra.equipo3.videoclub.service.PeliculaService;
 
 @RestController
-@RequestMapping("/api/peliculas")
+@RequestMapping("/api")
 public class PeliculaRestController {
 
 	@Autowired
 	PeliculaService peliculaService;
 
-	@GetMapping("/")
+	@GetMapping("/peliculas")
 	public Page<Pelicula> getAllPeliculas(
 			@PageableDefault(page = 0, size = 8, direction = Sort.Direction.DESC) Pageable pageable,
 			@RequestParam(name = "filter", required = false) String filter) {
@@ -33,29 +35,36 @@ public class PeliculaRestController {
 				: peliculaService.findAllPeliculas(pageable);
 	}
 
-	@GetMapping("/{id}")
-	public Pelicula getPelicula(@PathVariable Long id) {
+	@GetMapping("/peliculas/{id}")
+	public PeliculaDatos getPelicula(@PathVariable Long id) {
 		return peliculaService.findById(id);
 	}
 
-	@GetMapping("/director/{id}")
+	@GetMapping("/director/peliculas")
 	public Page<Pelicula> getAllByDirector(
 			@PageableDefault(page = 0, size = 8, direction = Sort.Direction.DESC) Pageable pageable,
 			@RequestParam(name = "id", required = false) Long id) {
 		return peliculaService.findAllByDirector(pageable, id);
 	}
+	
+	@GetMapping("/actor/peliculas/")
+	public Page<Pelicula> getAllByActor(
+			@PageableDefault(page = 0, size = 8, direction = Sort.Direction.DESC) Pageable pageable,
+			@RequestParam(name = "id", required = false)  Long id) {
+		return peliculaService.findByActor(pageable, id);
+	}
 
-	@PostMapping()
+	@PostMapping("/peliculas")
 	public Pelicula getAllByDirector(@RequestBody Pelicula pelicula) {
 		return peliculaService.insert(pelicula);
 	}
 
-	@PutMapping()
+	@PutMapping("/peliculas")
 	public Pelicula updatePelicula(@RequestBody Pelicula pelicula) {
 		return peliculaService.update(pelicula);
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/peliculas/{id}")
 	public void deletePelicula(@PathVariable Long id) {
 		peliculaService.delete(id);
 	}

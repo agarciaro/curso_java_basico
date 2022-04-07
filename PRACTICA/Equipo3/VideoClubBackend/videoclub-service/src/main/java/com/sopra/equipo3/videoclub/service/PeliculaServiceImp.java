@@ -1,6 +1,8 @@
 package com.sopra.equipo3.videoclub.service;
 
+import java.util.Arrays;
 import java.util.List;
+
 
 import javax.transaction.Transactional;
 
@@ -9,7 +11,13 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.sopra.equipo3.videoclub.model.ActorPelicula;
+import com.sopra.equipo3.videoclub.model.ActorPeliculaPK;
 import com.sopra.equipo3.videoclub.model.Pelicula;
+import com.sopra.equipo3.videoclub.model.PeliculaDatos;
+import com.sopra.equipo3.videoclub.repository.ActorPeliculaRepository;
+import com.sopra.equipo3.videoclub.repository.ActorRepository;
+import com.sopra.equipo3.videoclub.repository.DirectorRepository;
 import com.sopra.equipo3.videoclub.repository.PeliculaRepository;
 
 @Service
@@ -18,7 +26,13 @@ public class PeliculaServiceImp implements PeliculaService {
 
 	@Autowired
 	PeliculaRepository peliculaRepository;
-
+	@Autowired
+	ActorRepository actorRepository;
+	@Autowired
+	DirectorRepository directorRepository;
+	@Autowired
+	ActorPeliculaRepository actorPeliculaRepository;
+	
 	@Override
 	public Page<Pelicula> findAllPeliculas(Pageable pageable) {
 		
@@ -37,8 +51,12 @@ public class PeliculaServiceImp implements PeliculaService {
 	}
 
 	@Override
-	public Pelicula findById(Long id) {
-		return peliculaRepository.findById(id).get();
+	public PeliculaDatos findById(Long id) {
+		PeliculaDatos peliculaDatos = new PeliculaDatos ();
+		peliculaDatos.setPelicula(peliculaRepository.findById(id).get());
+		peliculaDatos.setActores(actorRepository.findByPeliculaId(id));
+		peliculaDatos.setDirectores(directorRepository.findByPeliculasId(id));
+		return peliculaDatos;
 	}
 
 	@Override
@@ -56,6 +74,12 @@ public class PeliculaServiceImp implements PeliculaService {
 		peliculaRepository.deleteById(id);
 
 	}
+
+	@Override
+	public Page<Pelicula> findByActor(Pageable pageable, Long idActor) {
+		return peliculaRepository.findByActorId(pageable, idActor);
+	}
+
 
 
 
