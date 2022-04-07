@@ -36,28 +36,9 @@ public class JwtTokenFilter extends OncePerRequestFilter{
 	@Autowired
 	JwtToken jwtToken;
 	
-	@Autowired
-	Pagina pagina;
-	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {	
-		
-		log.info("----- QUERY PARAMS:{}", request.getQueryString());
-		if(request.getQueryString() != null && !request.getQueryString().isEmpty()) {
-			String[] fields = request.getQueryString().split("&");
-			for (String field : fields) {
-				String[] claveValor = field.split("=");
-				if(claveValor[0].equals("page")) {
-					pagina.setPage(Integer.parseInt(claveValor[1]));
-				}
-				if(claveValor[0].equals("size")) {
-					pagina.setSize(Integer.parseInt(claveValor[1]));
-				}
-			}
-		
-			
-		}
 		
 		final String authHeader = request.getHeader(HttpHeaders.AUTHORIZATION);  //mira header
 		if(authHeader == null || !authHeader.startsWith("Bearer ")) {    // si no lleva token

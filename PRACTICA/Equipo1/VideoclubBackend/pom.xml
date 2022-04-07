@@ -35,53 +35,20 @@
 		<dependencies>
 			<dependency>
 				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>actor-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>alquiler-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.sopra.equipo1</groupId>
 				<artifactId>database-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>director-service</artifactId>
+				<artifactId>videoclub-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>ejemplar-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>pelicula-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>socio-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			
-			
-
 		</dependencies>
 	</dependencyManagement>
 
 	<modules>
 		<module>database-service</module>
-		<module>actor-service</module>
-		<module>pelicula-service</module>
-		<module>socio-service</module>
-		<module>director-service</module>
-		<module>AlquilerService</module>
-		<module>ejemplar-service</module>
+		<module>videoclub-service</module>
 	</modules>
 
 
