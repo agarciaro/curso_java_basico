@@ -26,5 +26,6 @@ public class Ejemplar {
 	private Pelicula pelicula;
 	
 	
+	
 
 }
