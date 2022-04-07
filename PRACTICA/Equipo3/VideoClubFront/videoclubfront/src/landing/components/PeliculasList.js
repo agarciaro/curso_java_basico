@@ -27,6 +27,7 @@ const PeliculasList = (props) => {
           productora={movie.productora}
           fecha={movie.fecha}
           url={movie.url}
+          img={movie.urlImagen}
           
         />
       );

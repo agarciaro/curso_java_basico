@@ -1,38 +1,65 @@
+.container {
+  position: absolute;
+  background-color: white;
+  width: 70vw;
+  top: 9vw;
+  left: 15vw;
+  height: 33vw;
 
-.container{
-    position: absolute;
-    background-color: white;
-    width: 70vw;
-    top: 9vw;
-    left: 15vw;
-    height: 33vw;
-   
-    border: 0vw hidden #1c6ea4;
-    border-radius: 2vw;
-    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
-    display: -ms-flex;
-    display: -webkit-flex;
-    display: flex;
+  border: 0vw hidden #1c6ea4;
+  border-radius: 2vw;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.33);
+  display: -ms-flex;
+  display: -webkit-flex;
+  display: flex;
 }
 
-.movie_info img{
-    position: relative;
-    height: 50%;
-    top:5vw;
-    left: 5vw;
-    object-fit: cover;
+.container img {
+  position: relative;
+  height: 75%;
+  top: 4vw;
+  left: 5vw;
+  object-fit: cover;
 }
 
-.movie_info{
-    position: relative;
-    top: 1vw;
-    left: 9vw;
+.movie_info {
+  position: relative;
+  top: 1vw;
+  left: 9vw;
 }
-.movie_info h1{
-    margin-left: 5vw;
-    font-size: 3vw;
-    color: 
-    #1c6ea4;
+.movie_info {
+  margin-left: 3vw;
+  font-family: "Staatliches" !important;
+  color: #247eb3;
+}
+.movie_info h2 {
+  margin-top: 0;
+  font-size: 1.4vw;
+  color: #247eb3;
+}
+.movie_info h1 {
+  margin-left: 5vw;
+  font-size: 3vw;
+  color: #247eb3;
+}
+.movie_info h3 {
+  margin-top: -0.7vw;
+  width: 33vw;
+  font-size: 0.9vw;
+  color: #1b5475;
+}
+
+.movie_actions{
+    position:absolute;
+    bottom: 3vw;
+    right: 3vw;
+}
+
+
+.movie_actions button {
+   width: 10vw;
+   height: 3vw;
+   font-size: 1.5vw;
 }
