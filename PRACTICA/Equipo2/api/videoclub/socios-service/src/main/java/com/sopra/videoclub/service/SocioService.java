@@ -12,5 +12,6 @@ public interface SocioService {
 	public Socio insertSocio(Socio socio);
 	public Socio updateSocio(Socio socio);
 	public void deleteSocio(Integer id);
+	public Integer getSocioCodigo(String codigo);
 	
 }

@@ -13,6 +13,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -38,6 +40,7 @@ public class Usuario {
 	private Set<Rol> roles = new HashSet<>();
 	
 	@OneToOne(mappedBy = "usuario")
+	@JsonIgnore
 	private Socio socio;
 
 }
