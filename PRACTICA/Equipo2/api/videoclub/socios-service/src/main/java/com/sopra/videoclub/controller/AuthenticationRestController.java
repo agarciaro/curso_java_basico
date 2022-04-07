@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sopra.videoclub.model.JwtToken;
+import com.sopra.videoclub.model.RegisterDetailsDto;
 import com.sopra.videoclub.model.Usuario;
 import com.sopra.videoclub.model.UsuarioCredenciales;
 import com.sopra.videoclub.service.JwtTokenUtil;
@@ -58,9 +59,9 @@ public class AuthenticationRestController {
 	}
 	
 	@PostMapping("/registro")
-	public Usuario registro(@RequestBody UsuarioCredenciales credencials) {
-		log.info("{}", credencials);
-		return usuarioService.insert(new Usuario(credencials.getUsername(), credencials.getPassword(),null,null));
+	public Usuario registro(@RequestBody RegisterDetailsDto registroDetails) {
+		
+		return usuarioService.insert(registroDetails);
 	}
 
 	@GetMapping("/password/{password}/encode")
