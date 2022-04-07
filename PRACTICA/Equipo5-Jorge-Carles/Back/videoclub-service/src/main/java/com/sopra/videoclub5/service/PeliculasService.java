@@ -2,19 +2,16 @@ package com.sopra.videoclub5.service;
 
 import java.util.List;
 
-import com.sopra.videoclub5.model.Pelicula;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+
+import com.sopra.videoclub5.modelEntity.Pelicula;
 
 public interface PeliculasService {
 
-	public List<Pelicula> findAll();
+	public Page<Pelicula> findAll(PageRequest of);
 
-	public Pelicula findById(Integer id);
+	public List<Pelicula> findByTitulo(String titulo);
 
-	public void deleteById(Integer id);
 
-	public Pelicula update(Pelicula pelicula);
-
-	public Pelicula insert(Pelicula pelicula);
-
-	List<Pelicula> find10();
 }

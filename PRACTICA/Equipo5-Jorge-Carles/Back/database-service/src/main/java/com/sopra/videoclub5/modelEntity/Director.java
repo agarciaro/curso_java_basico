@@ -1,10 +1,13 @@
-package com.sopra.videoclub5.model;
+package com.sopra.videoclub5.modelEntity;
+
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,4 +25,6 @@ public class Director {
 	@Column(nullable = false)
 	private String nombre;
 	private String nacionalidad;
+	
+
 }

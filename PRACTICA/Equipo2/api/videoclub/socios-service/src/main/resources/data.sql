@@ -10,7 +10,8 @@ INSERT INTO Videoclub2.director (id,nombre,nacionalidad) VALUES
  INSERT INTO Videoclub2.socio (num_socio, direccion, nombre, telefono,avalado_por) VALUES 
 (4,'vlc','juan','5',4),
 (5,'vlc','alberto','7',4),
-(6,'vlc','pepe','8',4);
+(6,'vlc','pepe','8',4),
+(7,'vlc','prueba','8', null);
 
 INSERT INTO  Videoclub2.pelicula  (id,titulo,nacionalidad,productora,fecha,url) VALUES
 (1,'Star Wars','ESP','Walt Disney','1995-01-29','https://youtu.be/beAH5vea99k');
@@ -25,4 +26,7 @@ INSERT INTO Videoclub2.ejemplar (num_ejemplar,estado,pelicula_id) VALUES
 (8,'Bien bonito',1);
 
 INSERT INTO Videoclub2.usuario (username,password) VALUES
-('usu1','$2a$10$kFXhaOZSbGhZ1j4lTQ0g7utliHCm35AtokJPiZmMZlz0W4dqHRZmC')
+('usu1','$2a$10$kFXhaOZSbGhZ1j4lTQ0g7utliHCm35AtokJPiZmMZlz0W4dqHRZmC');
+
+INSERT INTO Videoclub2.codigo_invitacion (socio_id, codigo) VALUES
+(7, 'patata');

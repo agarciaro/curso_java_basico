@@ -54,5 +54,6 @@
 		<module>database-service</module>
 		
 		<module>videoclub-service</module>
+		<module>security-service</module>
 	</modules>
 </project>

@@ -1,4 +1,4 @@
-package com.sopra.videoclub5.model;
+package com.sopra.videoclub5.modelEntity;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;

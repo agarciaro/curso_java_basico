@@ -1,9 +1,10 @@
-package com.sopra.videoclub5.model;
+package com.sopra.videoclub5.modelEntity;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.sql.rowset.serial.SerialArray;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,12 +14,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PeliculaActorKey implements Serializable {
-
-	@Column(name = "id_pelicula")
-	private Integer idPelicula;
-
-	@Column(name = "id_actor")
-	private Integer idActor;
+public class InvitacionKey implements Serializable {
+	
+	@Column(name = "num_socio")
+	private Integer numSocio;
 
 }

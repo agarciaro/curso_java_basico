@@ -1,4 +1,4 @@
-package com.sopra.videoclub5.model;
+package com.sopra.videoclub5.modelEntity;
 
 import java.io.Serializable;
 
@@ -13,11 +13,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class AlquilerKey implements Serializable {
+public class PeliculaActorKey implements Serializable {
 
-	@Column(name = "num_socio")
-	private Integer numSocio;
+	@Column(name = "id_pelicula")
+	private Integer idPelicula;
 
-	@Column(name = "num_ejemplar")
-	private Integer numEjemplar;
+	@Column(name = "id_actor")
+	private Integer idActor;
+
 }

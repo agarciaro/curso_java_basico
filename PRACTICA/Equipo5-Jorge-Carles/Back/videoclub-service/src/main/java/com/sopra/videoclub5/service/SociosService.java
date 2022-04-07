@@ -2,7 +2,7 @@ package com.sopra.videoclub5.service;
 
 import java.util.List;
 
-import com.sopra.videoclub5.model.Socio;
+import com.sopra.videoclub5.modelEntity.Socio;
 
 public interface SociosService {
 

@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sopra.videoclub5.model.Socio;
+import com.sopra.videoclub5.modelEntity.Socio;
 import com.sopra.videoclub5.service.SociosService;
 
 @RestController
 @RequestMapping("/api")
-public class SociosRestController {
+public class SociosController {
 
 	@Autowired
 	SociosService sociosService;
