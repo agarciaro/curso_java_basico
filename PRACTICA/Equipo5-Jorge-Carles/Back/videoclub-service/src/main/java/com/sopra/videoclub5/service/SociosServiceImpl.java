@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sopra.videoclub5.model.Socio;
+import com.sopra.videoclub5.modelEntity.Socio;
 import com.sopra.videoclub5.repository.SocioRepository;
 
 @Service

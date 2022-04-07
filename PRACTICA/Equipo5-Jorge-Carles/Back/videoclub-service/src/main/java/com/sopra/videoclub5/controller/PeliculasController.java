@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,40 +14,30 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sopra.videoclub5.model.Pelicula;
+import com.sopra.videoclub5.modelEntity.Pelicula;
+import com.sopra.videoclub5.repository.PeliculaRepository;
 import com.sopra.videoclub5.service.PeliculasService;
 
 @RestController
 @RequestMapping("/api")
-public class PeliculasRestController {
+public class PeliculasController {
 	@Autowired
 	PeliculasService peliculasService;
 
 	@GetMapping("/peliculas")
-	public List<Pelicula> getAllPeliculas() {
-		return peliculasService.findAll();
+	public Page<Pelicula> getAllPeliculas(
+			@RequestParam(name = "page", required = false, defaultValue = "0") int page,
+			@RequestParam(name = "size", required = false, defaultValue = "10") int size) {
+		return peliculasService.findAll(PageRequest.of(page, size));
 	}
 
-	@GetMapping("/peliculas/{id}")
-	public Pelicula getPeliculasById(@PathVariable Integer id) throws NoSuchElementException {
-		return peliculasService.findById(id);
+	@GetMapping("/peliculas/{titulo}")
+	public List<Pelicula> getPeliculasByNombre(@PathVariable String titulo) throws NoSuchElementException {
+		return peliculasService.findByTitulo(titulo);
 
 	}
 
-	@DeleteMapping("/peliculas/{id}")
-	public void deletePelicula(@PathVariable Integer id) throws NoSuchElementException {
-		peliculasService.deleteById(id);
-	}
-
-	@PostMapping("/peliculas")
-	public Pelicula insertPelicula(@Validated @RequestBody Pelicula pelicula) {
-		return peliculasService.insert(pelicula);
-	}
-
-	@PutMapping("/peliculas/{id}")
-	public Pelicula updateById(@PathVariable Integer id, @RequestBody Pelicula pelicula) {
-		return peliculasService.update(pelicula);
-	}
 }

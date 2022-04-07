@@ -1,4 +1,4 @@
-package com.sopra.videoclub5.model;
+package com.sopra.videoclub5.modelEntity;
 
 import java.io.Serializable;
 import java.sql.Date;
