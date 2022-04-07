@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.sopra.equipoa.videoclub.model.JwtToken;
+import com.sopra.equipoa.videoclub.model.Pagina;
 import com.sopra.equipoa.videoclub.service.JwtTokenUtil;
 import com.sopra.equipoa.videoclub.service.UsuarioDetailsService;
 
@@ -64,6 +65,10 @@ public class JwtTokenFilter extends OncePerRequestFilter{
 		}
 		
 		jwtToken.setToken(token);
+		jwtToken.setUsername(username);
+//		jwtToken.setRoles(userDetails.getAuthorities());
+		
+		
 		
 		filterChain.doFilter(request, response);
 		

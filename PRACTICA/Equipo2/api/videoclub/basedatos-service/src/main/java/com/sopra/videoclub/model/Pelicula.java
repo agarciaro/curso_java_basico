@@ -14,6 +14,8 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,6 +37,7 @@ public class Pelicula {
 	
 	
 	@OneToMany(mappedBy = "pelicula")
+	@JsonIgnore
 	private Set<PeliculaActor> actores;
 	
 	@ManyToMany(cascade = CascadeType.ALL)
@@ -46,6 +49,7 @@ public class Pelicula {
 	private Set<Director> directores;
 	
 	@OneToMany(mappedBy = "pelicula")
+	@JsonIgnore
 	private List<Ejemplar> ejemplares;
 	
 }

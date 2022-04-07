@@ -1,0 +1,15 @@
+- Para registar un usuario:
+
+1. Comprobar que existe el cod invitado
+2. Comprobar que NO existe el usuario y verificar el cod de referido
+3. Insertar el usuario, darle un rol = SOCIO
+4. Deletear el cod de invitado
+5. Asignarle un cod de referido
+
+
+insert usuarios ussername password rol usuario juan rol 1 tabla rol rol 1 socio
+rol 2 admin
+delete codinvitacion where id = usuario.id 
+update socio codreferido
+
+https://www.baeldung.com/java-uuid

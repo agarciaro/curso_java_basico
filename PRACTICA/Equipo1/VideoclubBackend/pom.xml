@@ -40,30 +40,15 @@
 			</dependency>
 			<dependency>
 				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>actor-service</artifactId>
+				<artifactId>videoclub-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-			<dependency>
-				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>pelicula-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.sopra.equipo1</groupId>
-				<artifactId>socio-service</artifactId>
-				<version>${project.version}</version>
-			</dependency>
-
 		</dependencies>
 	</dependencyManagement>
 
 	<modules>
 		<module>database-service</module>
-		<module>actor-service</module>
-		<module>pelicula-service</module>
-		<module>socio-service</module>
-		<module>director-service</module>
-		<module>AlquilerService</module>
+		<module>videoclub-service</module>
 	</modules>
 
 
