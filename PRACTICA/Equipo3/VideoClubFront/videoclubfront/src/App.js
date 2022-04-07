@@ -13,6 +13,7 @@ import LoadingSpinner from "./shared/components/UIElements/LoadingSpinner";
 import "./App.css";
 import Landing from "./landing/pages/Landing";
 import Pelicula from "./pelicula/page/Pelicula";
+import Authenticate from "./user/pages/Authenticate";
 
 
 const App = () => {
@@ -39,6 +40,9 @@ const App = () => {
         </Route>
         <Route path="/movie/:movieId" exact>
           <Pelicula />
+        </Route>
+        <Route path="/auth" exact>
+          <Authenticate />
         </Route>
       </Switch>
     );

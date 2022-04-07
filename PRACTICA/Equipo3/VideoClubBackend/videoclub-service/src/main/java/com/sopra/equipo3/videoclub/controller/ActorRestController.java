@@ -45,5 +45,10 @@ public class ActorRestController {
 	public void deleteActor(@PathVariable Long id) {
 		actorService.delete(id);
 	}
+	
+	@GetMapping("/pelicula/{id}")
+	public List<Actor> getAllActoresByPelicula(@PathVariable Long id) {
+		return actorService.findActoresByPelicula(id);
+	}
 
 }
