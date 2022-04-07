@@ -26,6 +26,7 @@ public class Director{
 	@Column(nullable = false)
 	private String nombre;
 	private String nacionalidad;
+	private String urlImagen;
 	
 	@Exclude
 	@ManyToMany(mappedBy = "directores")
