@@ -3,9 +3,9 @@ package com.sopra.equipoa.videoclub.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.sopra.equipoa.videoclub.model.entity.Rol;
+import com.sopra.equipoa.videoclub.model.entity.SocioUsuario;
 
 @Repository
-public interface RolRepository extends CrudRepository<Rol, Long>{
-	public Rol findByNombre(String nombre);
+public interface SocioUsuarioRepository extends CrudRepository<SocioUsuario, Long>{
+
 }
