@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sopra.equipo3.videoclub.model.ActorPelicula;
-import com.sopra.equipo3.videoclub.model.Pelicula;
-import com.sopra.equipo3.videoclub.model.PeliculaDatos;
+import com.sopra.equipo3.videoclub.model.entity.ActorPelicula;
+import com.sopra.equipo3.videoclub.model.entity.Pelicula;
+import com.sopra.equipo3.videoclub.model.entity.PeliculaDatos;
 import com.sopra.equipo3.videoclub.service.PeliculaService;
 
 @RestController

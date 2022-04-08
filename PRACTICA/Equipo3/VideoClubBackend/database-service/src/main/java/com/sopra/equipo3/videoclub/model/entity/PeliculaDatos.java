@@ -1,4 +1,4 @@
-package com.sopra.equipo3.videoclub.model;
+package com.sopra.equipo3.videoclub.model.entity;
 
 import java.util.ArrayList;
 import java.util.List;

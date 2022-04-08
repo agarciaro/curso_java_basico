@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.sopra.equipo3.videoclub.model.Actor;
+import com.sopra.equipo3.videoclub.model.entity.Actor;
 import com.sopra.equipo3.videoclub.repository.ActorRepository;
 
 @Service

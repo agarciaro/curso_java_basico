@@ -1,4 +1,4 @@
-package com.sopra.equipo3.videoclub.model;
+package com.sopra.equipo3.videoclub.model.entity;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,5 +40,13 @@ public class Usuario {
 	)
 	private Set<Rol> roles = new HashSet<>();
 	
-
+	@OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private SocioUsuario socioUsuario;
+	
+	
+	public Usuario(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 }

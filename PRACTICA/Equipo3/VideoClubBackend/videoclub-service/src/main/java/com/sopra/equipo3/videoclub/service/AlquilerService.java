@@ -2,8 +2,8 @@ package com.sopra.equipo3.videoclub.service;
 
 import java.util.List;
 
-import com.sopra.equipo3.videoclub.model.Alquiler;
-import com.sopra.equipo3.videoclub.model.AlquilerPK;
+import com.sopra.equipo3.videoclub.model.entity.Alquiler;
+import com.sopra.equipo3.videoclub.model.entity.AlquilerPK;
 public interface AlquilerService {
 
 		
