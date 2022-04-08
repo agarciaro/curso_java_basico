@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.sopra.equipo3.videoclub.model.Actor;
+import com.sopra.equipo3.videoclub.model.entity.Actor;
 
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Long> {

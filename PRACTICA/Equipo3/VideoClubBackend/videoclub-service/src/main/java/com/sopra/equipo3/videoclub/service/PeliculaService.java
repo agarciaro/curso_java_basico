@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.sopra.equipo3.videoclub.model.ActorPelicula;
-import com.sopra.equipo3.videoclub.model.ActorPeliculaPK;
-import com.sopra.equipo3.videoclub.model.Pelicula;
-import com.sopra.equipo3.videoclub.model.PeliculaDatos;
+import com.sopra.equipo3.videoclub.model.entity.ActorPelicula;
+import com.sopra.equipo3.videoclub.model.entity.ActorPeliculaPK;
+import com.sopra.equipo3.videoclub.model.entity.Pelicula;
+import com.sopra.equipo3.videoclub.model.entity.PeliculaDatos;
 
 public interface PeliculaService {
 		

@@ -2,7 +2,7 @@ package com.sopra.equipo3.videoclub.service;
 
 import java.util.List;
 
-import com.sopra.equipo3.videoclub.model.Actor;
+import com.sopra.equipo3.videoclub.model.entity.Actor;
 
 public interface ActorService {
 	

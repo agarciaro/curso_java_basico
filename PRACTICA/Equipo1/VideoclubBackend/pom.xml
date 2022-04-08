@@ -43,12 +43,18 @@
 				<artifactId>videoclub-service</artifactId>
 				<version>${project.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>com.sopra.equipo1</groupId>
+				<artifactId>security-service</artifactId>
+				<version>${project.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<modules>
 		<module>database-service</module>
 		<module>videoclub-service</module>
+		<module>security-service</module>
 	</modules>
 
 
