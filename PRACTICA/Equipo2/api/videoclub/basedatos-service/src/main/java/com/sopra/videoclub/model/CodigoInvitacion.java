@@ -7,6 +7,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,6 +26,7 @@ public class CodigoInvitacion {
 	@OneToOne
 	@MapsId
 	@JoinColumn(name = "socio_id")
+	@JsonBackReference
 	private Socio socio;
 	private String codigo;
 }

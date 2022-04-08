@@ -72,6 +72,8 @@ public class SociosSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		//Establecer permisos a los endpoints
 		http.authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/api/auth/*").permitAll()
+			.antMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
+			.antMatchers(HttpMethod.GET, "/v3/api-docs/**").permitAll()
 			.antMatchers(HttpMethod.GET, "/api/auth/password/*/encode").permitAll()
 			.anyRequest().authenticated();
 	
