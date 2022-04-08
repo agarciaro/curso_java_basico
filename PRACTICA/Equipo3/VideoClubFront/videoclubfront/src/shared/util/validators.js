@@ -5,7 +5,8 @@ const VALIDATOR_TYPE_MIN = "MIN";
 const VALIDATOR_TYPE_MAX = "MAX";
 const VALIDATOR_TYPE_EMAIL = "EMAIL";
 const VALIDATOR_TYPE_FILE = "FILE";
-const VALIDATOR_TYPE_DNI = "DNI"
+const VALIDATOR_TYPE_DNI = "DNI";
+const VALIDATOR_TYPE_PASS = "PASS2";
 
 export const VALIDATOR_REQUIRE = () => ({ type: VALIDATOR_TYPE_REQUIRE });
 export const VALIDATOR_FILE = () => ({ type: VALIDATOR_TYPE_FILE });
@@ -21,6 +22,7 @@ export const VALIDATOR_MIN = (val) => ({ type: VALIDATOR_TYPE_MIN, val: val });
 export const VALIDATOR_MAX = (val) => ({ type: VALIDATOR_TYPE_MAX, val: val });
 export const VALIDATOR_EMAIL = () => ({ type: VALIDATOR_TYPE_EMAIL });
 export const VALIDATOR_DNI = () => ({ type: VALIDATOR_TYPE_DNI });
+export const VALIDATOR_PASS = (val) => ({ type: VALIDATOR_TYPE_PASS, val: val });
 
 export const validate = (value, validators) => {
   let isValid = true;
@@ -45,6 +47,9 @@ export const validate = (value, validators) => {
     }
     if (validator.type === VALIDATOR_TYPE_DNI) {
       isValid = isValid &&  /^[0-9XYZ][0-9]{7}[TRWAGMYFPDXBNJZSQVHLCKE]$/i.test(value);
+    }
+    if (validator.type === VALIDATOR_TYPE_PASS) {
+      isValid = isValid &&  value === validator.val;
     }
   }
   return isValid;

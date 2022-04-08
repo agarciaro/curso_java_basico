@@ -11,10 +11,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.sopra.equipo3.videoclub.model.DTO.PeliculaDatosDTO;
 import com.sopra.equipo3.videoclub.model.entity.ActorPelicula;
 import com.sopra.equipo3.videoclub.model.entity.ActorPeliculaPK;
 import com.sopra.equipo3.videoclub.model.entity.Pelicula;
-import com.sopra.equipo3.videoclub.model.entity.PeliculaDatos;
 import com.sopra.equipo3.videoclub.repository.ActorPeliculaRepository;
 import com.sopra.equipo3.videoclub.repository.ActorRepository;
 import com.sopra.equipo3.videoclub.repository.DirectorRepository;
@@ -51,8 +51,8 @@ public class PeliculaServiceImp implements PeliculaService {
 	}
 
 	@Override
-	public PeliculaDatos findById(Long id) {
-		PeliculaDatos peliculaDatos = new PeliculaDatos ();
+	public PeliculaDatosDTO findById(Long id) {
+		PeliculaDatosDTO peliculaDatos = new PeliculaDatosDTO ();
 		peliculaDatos.setPelicula(peliculaRepository.findById(id).get());
 		peliculaDatos.setActores(actorRepository.findByPeliculaId(id));
 		peliculaDatos.setDirectores(directorRepository.findByPeliculasId(id));

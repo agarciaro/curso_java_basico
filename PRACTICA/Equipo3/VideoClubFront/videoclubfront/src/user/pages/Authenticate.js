@@ -25,11 +25,15 @@ const Authenticate = (props) => {
 
   const [formState, inputHandler, setFormData] = useForm(
     {
-      email: {
+      username: {
         value: "",
         isValid: false,
       },
       password: {
+        value: "",
+        isValid: false,
+      },
+      password2: {
         value: "",
         isValid: false,
       },
@@ -42,21 +46,17 @@ const Authenticate = (props) => {
       setFormData(
         {
           ...formState.inputs,
-          nombre: undefined,
-          dni: undefined,
-          telefono: undefined,
-          direccion: undefined,
+          email: undefined,
+          codigoInvitacion: undefined,
         },
-        formState.inputs.email.isValid && formState.inputs.password.isValid
+        formState.inputs.username.isValid && formState.inputs.password.isValid
       );
     } else {
       setFormData(
         {
           ...formState.inputs,
-          nombre: { value: "", isValid: false },
-          dni: { value: "", isValid: false },
-          telefono: { value: null, isValid: false },
-          direccion: { value: "", isValid: false },
+          email: { value: "", isValid: false },
+          codigoInvitacion: { value: "", isValid: false },
         },
         false
       );
@@ -74,7 +74,7 @@ const Authenticate = (props) => {
           // `${process.env.REACT_APP_BACKEND_URL}/users/login`,
           "POST",
           JSON.stringify({
-            email: formState.inputs.email.value,
+            username: formState.inputs.email.value,
             password: formState.inputs.password.value,
           }),
           {
@@ -94,10 +94,7 @@ const Authenticate = (props) => {
           JSON.stringify({
             email: formState.inputs.email.value,
             password: formState.inputs.password.value,
-            nombre: formState.inputs.title.value,
-            dni: formState.inputs.dni.value,
-            telefono: formState.inputs.telefono.value,
-            direccion: formState.inputs.direccion.value,
+            username: formState.inputs.username.value,
           }),
           {
             "Content-Type": "application/json",
@@ -105,7 +102,7 @@ const Authenticate = (props) => {
           }
         );
 
-        history.push("/" + auth.userId + "/places");
+        history.push("/");
       } catch (err) {}
     }
   };
@@ -121,53 +118,26 @@ const Authenticate = (props) => {
             <React.Fragment>
               <Input
                 element="input"
-                id="nombre"
+                id="username"
                 type="text"
                 label="Nombre"
                 validators={[VALIDATOR_REQUIRE]}
                 errorText="Por favor, introduce un nombre"
                 onInput={inputHandler}
               />
-              <Input
-                element="input"
-                id="dni"
-                type="text"
-                label="NIF"
-                validators={[VALIDATOR_DNI()]}
-                errorText="Por favor, introduce un DNI o NIE  valido"
-                onInput={inputHandler}
-              />
-              <Input
-                element="input"
-                id="telefono"
-                type="text"
-                label="Telefono de contacto"
-                validators={[VALIDATOR_REQUIRE]}
-                errorText="Por favor, introduce un telefono valido"
-                onInput={inputHandler}
-              />
-              <Input
-                element="input"
-                id="address"
-                type="text"
-                label="Dirección"
-                validators={[VALIDATOR_REQUIRE]}
-                errorText="Por favor, introduce una dirección"
-                onInput={inputHandler}
-              />
             </React.Fragment>
           )}
 
-        
           <Input
-            id="email"
             element="input"
-            type="email"
-            label="E-mail"
-            validators={[VALIDATOR_EMAIL()]}
-            errorText="Please enter a valid Email"
+            id="username"
+            type="text"
+            label="Nombre"
+            validators={[VALIDATOR_REQUIRE]}
+            errorText="Por favor, introduce un nombre"
             onInput={inputHandler}
           />
+
           <Input
             id="password"
             element="input"
@@ -177,6 +147,17 @@ const Authenticate = (props) => {
             errorText="Please enter a valid password, at least 6 characters ."
             onInput={inputHandler}
           />
+              {!isLoginMode && (
+              <Input
+                id="password2"
+                element="input"
+                type="password"
+                label="Password"
+                validators={[VALIDATOR_MINLENGTH(6)]}
+                errorText="Please enter a valid password, at least 6 characters ."
+                onInput={inputHandler}
+              />
+          )}
           <Button type="submit" disabled={!formState.isValid}>
             {isLoginMode ? "Iniciar" : "Registrarse"}
           </Button>
