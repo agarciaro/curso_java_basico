@@ -28,6 +28,6 @@ public class Invitacion {
 	Socio socio;
 
 	@Column(nullable = false)
-	private Integer codigo;
+	private String codigo;
 
 }
