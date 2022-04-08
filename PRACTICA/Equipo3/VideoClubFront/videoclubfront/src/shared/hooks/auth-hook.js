@@ -5,19 +5,22 @@ let logoutTimer;
 export const useAuth = () => {
   const [token, setToken] = useState(false);
   const [tokenExpirationD, setTokenExpirationDate] = useState();
-  const [userId, setUserId] = useState(false);
+  const [username, setUsername] = useState(false);
+  const [roles, setRoles] = useState(false);
 
-  const login = useCallback((uid, token, expirationDate) => {
+  const login = useCallback((unm, token, rol, expirationDate) => {
     setToken(token);
-    setUserId(uid);
+    setUsername(unm);
+    setRoles(rol);
     const tokenExpirationDate =
       expirationDate || new Date(new Date().getTime() + 1000 * 60 * 120);
     setTokenExpirationDate(tokenExpirationDate);
     localStorage.setItem(
       "userData",
       JSON.stringify({
-        userId: uid,
+        username: unm,
         token: token,
+        roles: rol,
         expiration: tokenExpirationDate.toISOString(),
       })
     );
@@ -26,7 +29,8 @@ export const useAuth = () => {
   const logout = useCallback(() => {
     setToken(null);
     setTokenExpirationDate(null);
-    setUserId(null);
+    setUsername(null);
+    setRoles(null);
     localStorage.removeItem("userData");
   }, []);
 
@@ -48,12 +52,12 @@ export const useAuth = () => {
       new Date(storedData.expiration) > new Date()
     ) {
       login(
-        storedData.userId,
+        storedData.username,
         storedData.token,
         new Date(storedData.expiration)
       );
     }
   }, [login]);
 
-  return { token, login, logout, userId };
+  return { token, login, logout, username, roles };
 };

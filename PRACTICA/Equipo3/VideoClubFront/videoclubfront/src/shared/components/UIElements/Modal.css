@@ -12,8 +12,8 @@
 
 .modal__header {
   width: 100%;
-  padding: 1rem 0.5rem;
-  background: #f3bf66;
+  padding: 1rem 0rem;
+  background: #66bff3;
   color: white;
   border-radius: 2vw 2vw 0 0 ;
   font-size: 1.2vw;

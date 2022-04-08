@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sopra.equipo3.videoclub.model.DTO.PeliculaDatosDTO;
+import com.sopra.equipo3.videoclub.model.DTO.PeliculaDatosDto;
 import com.sopra.equipo3.videoclub.model.entity.ActorPelicula;
 import com.sopra.equipo3.videoclub.model.entity.Pelicula;
 import com.sopra.equipo3.videoclub.service.PeliculaService;
@@ -36,7 +36,7 @@ public class PeliculaRestController {
 	}
 
 	@GetMapping("/peliculas/{id}")
-	public PeliculaDatosDTO getPelicula(@PathVariable Long id) {
+	public PeliculaDatosDto getPelicula(@PathVariable Long id) {
 		return peliculaService.findById(id);
 	}
 

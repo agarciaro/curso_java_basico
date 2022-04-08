@@ -19,6 +19,7 @@ import javax.validation.Valid;
 
 import com.sopra.equipo3.videoclub.model.JwtToken;
 import com.sopra.equipo3.videoclub.model.DTO.DatosRegistroDto;
+import com.sopra.equipo3.videoclub.model.DTO.LoginDto;
 import com.sopra.equipo3.videoclub.model.entity.Usuario;
 import com.sopra.equipo3.videoclub.service.JwtTokenUtil;
 import com.sopra.equipo3.videoclub.service.UsuarioService;
@@ -45,14 +46,14 @@ public class UsuarioRestController {
 //	@Autowired
 //	JwtToken jwtToken;
 	
-	@GetMapping("/login")
-	public JwtToken login(@RequestParam(required = true) String username, @RequestParam(required = true) String password) {
-		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+	@PostMapping("/login")
+	public JwtToken login(@RequestBody @Valid LoginDto logindto) {
+		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(logindto.getUsername(), logindto.getPassword()));
 		
-		UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+		UserDetails userDetails = userDetailsService.loadUserByUsername(logindto.getUsername());
 		String token= jwtTokenUtil.generateToken(userDetails);		
 		
-		return new JwtToken(token, username, ((Usuario) userDetails).getRoles().stream().map((rol -> rol.getNombre())).collect(Collectors.toList()));
+		return new JwtToken(token, logindto.getUsername(), ((Usuario) userDetails).getRoles().stream().map((rol -> rol.getNombre())).collect(Collectors.toList()));
 	}
 	
 	@PostMapping("/registro")

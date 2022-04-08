@@ -9,6 +9,7 @@ import {
   VALIDATOR_DNI,
   VALIDATOR_EMAIL,
   VALIDATOR_MINLENGTH,
+  VALIDATOR_PASS,
   VALIDATOR_REQUIRE,
 } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hook";
@@ -22,6 +23,7 @@ const Authenticate = (props) => {
   const [isLoginMode, setIsLoginMode] = useState(true);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const history = useHistory();
+  const [passConfirm, setPassConfirm] = useState();
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -30,10 +32,6 @@ const Authenticate = (props) => {
         isValid: false,
       },
       password: {
-        value: "",
-        isValid: false,
-      },
-      password2: {
         value: "",
         isValid: false,
       },
@@ -71,38 +69,42 @@ const Authenticate = (props) => {
     if (isLoginMode) {
       try {
         const responseData = await sendRequest(
-          // `${process.env.REACT_APP_BACKEND_URL}/users/login`,
+          `${process.env.REACT_APP_BACKEND_URL}/login`,
           "POST",
           JSON.stringify({
-            username: formState.inputs.email.value,
+            username: formState.inputs.username.value,
             password: formState.inputs.password.value,
+            
           }),
           {
             "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.userId, responseData.token);
-      } catch (err) {}
+        auth.login(responseData.username, responseData.token, responseData.roles);
+      } catch (err) {
+
+      }
       if (props.close) {
         props.close();
+      } else {
+        history.push("/");
       }
     } else {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/users/signup`,
+          `${process.env.REACT_APP_BACKEND_URL}/registro`,
           "POST",
           JSON.stringify({
+            username: formState.inputs.username.value,
             email: formState.inputs.email.value,
             password: formState.inputs.password.value,
-            username: formState.inputs.username.value,
+            codigoInvitacion: formState.inputs.codigoInvitacion.value,
           }),
           {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + auth.token,
           }
         );
-
-        history.push("/");
+  
       } catch (err) {}
     }
   };
@@ -114,51 +116,58 @@ const Authenticate = (props) => {
         {isLoading && <LoadingSpinner asOverlay />}
         <h2>Iniciar Sesión</h2>
         <form onSubmit={authSubmitHandler}>
-          {!isLoginMode && (
-            <React.Fragment>
-              <Input
-                element="input"
-                id="username"
-                type="text"
-                label="Nombre"
-                validators={[VALIDATOR_REQUIRE]}
-                errorText="Por favor, introduce un nombre"
-                onInput={inputHandler}
-              />
-            </React.Fragment>
-          )}
-
           <Input
             element="input"
             id="username"
             type="text"
-            label="Nombre"
+            label="Nombre de Usuario"
             validators={[VALIDATOR_REQUIRE]}
             errorText="Por favor, introduce un nombre"
             onInput={inputHandler}
           />
-
+          {!isLoginMode && (
+            <Input
+              id="email"
+              element="input"
+              type="email"
+              label="E-mail"
+              validators={[VALIDATOR_EMAIL()]}
+              errorText="Please enter a valid Email"
+              onInput={inputHandler}
+            />
+          )}
           <Input
             id="password"
             element="input"
             type="password"
             label="Password"
             validators={[VALIDATOR_MINLENGTH(6)]}
-            errorText="Please enter a valid password, at least 6 characters ."
+            errorText="Por favor, introduce un password con mas de 6 caracteres ."
             onInput={inputHandler}
           />
-              {!isLoginMode && (
+          {!isLoginMode && (
+            <React.Fragment>
               <Input
                 id="password2"
                 element="input"
                 type="password"
-                label="Password"
-                validators={[VALIDATOR_MINLENGTH(6)]}
-                errorText="Please enter a valid password, at least 6 characters ."
+                label="Confirmacion del password"
+                validators={[VALIDATOR_PASS(formState.inputs.password.value)]}
+                errorText="La contraseña introducida no coincide en los dos campos ."
                 onInput={inputHandler}
               />
+              <Input
+                id="codigoInvitacion"
+                element="input"
+                type="text"
+                label="Codigo de Invitacion"
+                validators={[VALIDATOR_MINLENGTH(0)]}
+                errorText="BLA ."
+                onInput={inputHandler}
+              />
+            </React.Fragment>
           )}
-          <Button type="submit" disabled={!formState.isValid}>
+          <Button type="submit">
             {isLoginMode ? "Iniciar" : "Registrarse"}
           </Button>
         </form>

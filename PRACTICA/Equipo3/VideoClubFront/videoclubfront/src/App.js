@@ -17,7 +17,7 @@ import Authenticate from "./user/pages/Authenticate";
 
 
 const App = () => {
-  const { token, login, logout, userId } = useAuth();
+  const { token, login, logout, username, roles } = useAuth();
 
   let routes;
 
@@ -52,7 +52,9 @@ const App = () => {
       value={{
         isLoggedIn: !!token,
         token: token,
-        userId: userId,
+        username: username,
+        roles: roles,
+      
         login: login,
         logout: logout,
       }}
