@@ -9,10 +9,10 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.sopra.equipo3.videoclub.model.Actor;
-import com.sopra.equipo3.videoclub.model.ActorPelicula;
-import com.sopra.equipo3.videoclub.model.ActorPeliculaPK;
-import com.sopra.equipo3.videoclub.model.Pelicula;
+import com.sopra.equipo3.videoclub.model.entity.Actor;
+import com.sopra.equipo3.videoclub.model.entity.ActorPelicula;
+import com.sopra.equipo3.videoclub.model.entity.ActorPeliculaPK;
+import com.sopra.equipo3.videoclub.model.entity.Pelicula;
 
 @Repository
 public interface PeliculaRepository extends JpaRepository<Pelicula, Long> {

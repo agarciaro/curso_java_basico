@@ -11,10 +11,10 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.sopra.equipo3.videoclub.model.ActorPelicula;
-import com.sopra.equipo3.videoclub.model.ActorPeliculaPK;
-import com.sopra.equipo3.videoclub.model.Pelicula;
-import com.sopra.equipo3.videoclub.model.PeliculaDatos;
+import com.sopra.equipo3.videoclub.model.entity.ActorPelicula;
+import com.sopra.equipo3.videoclub.model.entity.ActorPeliculaPK;
+import com.sopra.equipo3.videoclub.model.entity.Pelicula;
+import com.sopra.equipo3.videoclub.model.entity.PeliculaDatos;
 import com.sopra.equipo3.videoclub.repository.ActorPeliculaRepository;
 import com.sopra.equipo3.videoclub.repository.ActorRepository;
 import com.sopra.equipo3.videoclub.repository.DirectorRepository;

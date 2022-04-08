@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sopra.equipo3.videoclub.model.Actor;
+import com.sopra.equipo3.videoclub.model.entity.Actor;
 import com.sopra.equipo3.videoclub.service.ActorService;
 
 @RestController
