@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -34,7 +35,14 @@ public class Pelicula {
 	private String nacionalidad;
 	private String productora;
 	private LocalDate fecha;
-	private String url;
+	@Column(name = "url_video")
+	private String urlVideo;
+	@Column(name = "url_poster")
+	private String urlPoster;
+	@Column(name = "url_fondo")
+	private String urlFondo;
+	@Lob
+	private String sinopsis;
 
 	@ManyToMany 
 	@JoinTable (

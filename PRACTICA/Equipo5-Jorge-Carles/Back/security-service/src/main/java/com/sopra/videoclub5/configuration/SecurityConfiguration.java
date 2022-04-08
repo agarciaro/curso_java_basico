@@ -25,7 +25,7 @@ import com.sopra.videoclub5.model.JwtToken;
 import com.sopra.videoclub5.service.UsuarioDetailsService;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity // Inicia la seguridad
 @EnableGlobalMethodSecurity(securedEnabled = true, jsr250Enabled = true, prePostEnabled = true)
 @ConditionalOnProperty(name = "com.sopra.security.enabled", havingValue = "true", matchIfMissing = false)
 
@@ -47,7 +47,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	}
 
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception { // Dices a Spring de donde tiene que
+																					// sacar los datos para validar que
+																					// eres tú
 		auth.userDetailsService(usuariDetalsService);
 	}
 
@@ -56,19 +58,19 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		// Habilitar CORS y deshabilitar CSRF
 		http = http.cors().and().csrf().disable();
 
-		// Establecer el Session Management a STATELESS
-		http = http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and();
+		// Establecer el Session Management a STATELESS (Por ser Stateless no lo guardará en la Base de datos)
+		http = http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and(); 
 
-		// Establecer un Exception Handler para los REQUESTS no permitidos
+		// Establecer un Exception Handler para los REQUESTS no permitidos (Devuelve el 401)
 		http = http.exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and();
 
-		// Establecer permisos a los endpoints
+		// Establecer permisos a los endpoints (Das los permisos a los usuarios)
 		http.authorizeRequests().antMatchers(HttpMethod.GET, "/api/login").permitAll()
-//			.antMatchers(HttpMethod.GET, "/api/auth/password/*/encode").permitAll()
-				.anyRequest().authenticated();
+			.antMatchers(HttpMethod.POST, "/api/registro").permitAll();
+				//.anyRequest().authenticated(); Pide autenticación a todo
 
 		// Añadir el filtro para procesar el token JWT
-		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+		http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class); //Si tienes un token válido te dará permisos de entradas
 
 	}
 

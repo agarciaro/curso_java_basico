@@ -25,6 +25,9 @@ public class Director {
 	@Column(nullable = false)
 	private String nombre;
 	private String nacionalidad;
+	private String sexo;
+	@Column(name = "url_imagen")
+	private String urlImagen;
 	
 
 }
