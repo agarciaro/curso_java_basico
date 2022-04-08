@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./peliculas.component.css']
 })
 export class PeliculasComponent implements OnInit {
-
+  numbers=[1,2,3,4];
   usuario:String | null = "";
   constructor(private route:Router) { }
 
